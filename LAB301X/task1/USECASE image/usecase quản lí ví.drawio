@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="SDoe8ycsI6qhSmYGr_3Y">
+    <mxGraphModel dx="1191" dy="694" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="17do21Ey1h6uAEtOgS61-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="530" width="340" x="260" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-15" edge="1" parent="1" source="17do21Ey1h6uAEtOgS61-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="17do21Ey1h6uAEtOgS61-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-16" edge="1" parent="1" source="17do21Ey1h6uAEtOgS61-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="17do21Ey1h6uAEtOgS61-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="510" />
+              <mxPoint x="680" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-17" edge="1" parent="1" source="17do21Ey1h6uAEtOgS61-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;" target="17do21Ey1h6uAEtOgS61-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="admin" vertex="1">
+          <mxGeometry height="60" width="30" x="690" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-12" edge="1" parent="1" source="17do21Ey1h6uAEtOgS61-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="17do21Ey1h6uAEtOgS61-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-13" edge="1" parent="1" source="17do21Ey1h6uAEtOgS61-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="17do21Ey1h6uAEtOgS61-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-14" edge="1" parent="1" source="17do21Ey1h6uAEtOgS61-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;" target="17do21Ey1h6uAEtOgS61-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-3" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="user" vertex="1">
+          <mxGeometry height="60" width="30" x="130" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Xem ví trong hệ thống" vertex="1">
+          <mxGeometry height="80" width="120" x="365" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Xem tổng số coin đang lưu hành" vertex="1">
+          <mxGeometry height="80" width="120" x="305" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="xem tổng số coin đang bị khóa" vertex="1">
+          <mxGeometry height="80" width="120" x="460" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Xem số dư ví khả dụng" vertex="1">
+          <mxGeometry height="80" width="120" x="305" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Xem số dư đang khóa" vertex="1">
+          <mxGeometry height="80" width="120" x="460" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="17do21Ey1h6uAEtOgS61-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Xem lịch sử biến động ví" vertex="1">
+          <mxGeometry height="80" width="120" x="380" y="650" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
