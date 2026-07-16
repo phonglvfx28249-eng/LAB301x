@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@utility text-stroke-* {
+    -webkit-text-stroke-width: --value(integer)px;
+}
+
+@utility text-stroke-color-* {
+    -webkit-text-stroke-color: --value(--color-*);
+}
