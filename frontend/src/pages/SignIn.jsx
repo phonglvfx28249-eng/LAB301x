@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import WindyLogo from "../components/common/windy-logo.jsx";
 import Button from "../components/common/Button.jsx";
-import {Link} from "react-router-dom";
+import {Link} from "react-router-dom"
 
 function GoogleIcon() {
     return (
@@ -30,7 +30,7 @@ function GoogleIcon() {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_REGEX = /^(0|\+84)[0-9]{9,10}$/;
 
-export default function SignUpForm() {
+export default function SignInForm() {
     const {
         register,
         handleSubmit,
@@ -39,7 +39,7 @@ export default function SignUpForm() {
 
     const onSubmit = async (data) => {
 
-        // services
+
         console.log(data);
         // submit to API here, e.g. await api.signUp(data)
     };
@@ -56,7 +56,7 @@ export default function SignUpForm() {
                 {/* Card */}
                 <div className="bg-[#EAE3D5] border border-gray-700/70 rounded-md px-8 py-8">
                     <h1 className="text-center font-serif text-2xl font-bold text-gray-900 mb-6">
-                        Sign up
+                        Sign in
                     </h1>
 
                     <form
@@ -131,9 +131,18 @@ export default function SignUpForm() {
                         <span>Sign up with Google</span>
                     </button>
 
-                    <p className="text-center text-xs text-gray-800 underline mt-5 cursor-pointer font-bold">
-                         <Link to="/login">Already have account?</Link>
-                    </p>
+                    <div className="flex gap-3">
+
+                        <p className="text-center text-xs text-gray-800 underline mt-5 cursor-pointer font-bold">
+                             <Link to="/reset_password">Forgot password?</Link>
+                        </p>
+
+                        <p className="text-center text-xs text-gray-800 underline mt-5 cursor-pointer font-bold">
+                            <Link to="/register">Doesn't have account?</Link>
+
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>

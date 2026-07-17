@@ -4,11 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch" />
+    <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignIn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/HP/OneDriveWind/OneDrive/SFEFUNIX/blockchaintradingv2" value="3GWZvwvtlyeXUgtphuVeJyCAE46" />
+    </persistenceIdMap>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="88" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,6 +42,69 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="2.2800285512309347E-41" />
+      <entry key="MS500" value="7.440264699851813E-9" />
+      <entry key="S2" value="0.009561563149772275" />
+      <entry key="S5" value="0.1914838666237267" />
+      <entry key="S10" value="0.589928432917961" />
+      <entry key="S30" value="1.4770435720302635" />
+      <entry key="S60" value="2.1595191379402054" />
+      <entry key="M2" value="3.34702908467513" />
+      <entry key="M5" value="6.734696830261974" />
+      <entry key="M10" value="11.513941605770004" />
+      <entry key="M15" value="15.48498907627517" />
+      <entry key="M30" value="22.94987434585112" />
+      <entry key="H1" value="29.120714444601024" />
+      <entry key="H2" value="33.151004908988895" />
+      <entry key="H4" value="35.46263700271412" />
+      <entry key="D1" value="37.56044548873468" />
+      <entry key="W1" value="37.9367849715671" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.000000000212768" />
+      <entry key="MS500" value="1.0116463743756643" />
+      <entry key="S2" value="1.4075913885560207" />
+      <entry key="S5" value="2.269946610684317" />
+      <entry key="S10" value="3.325584596119524" />
+      <entry key="S30" value="5.290277255997051" />
+      <entry key="S60" value="6.338225302992623" />
+      <entry key="M2" value="7.077480641860497" />
+      <entry key="M5" value="7.938411937005601" />
+      <entry key="M10" value="9.356088978111044" />
+      <entry key="M15" value="10.762629978103387" />
+      <entry key="M30" value="13.663506348218835" />
+      <entry key="H1" value="16.2042857921022" />
+      <entry key="H2" value="17.91002478340946" />
+      <entry key="H4" value="18.901680033528315" />
+      <entry key="D1" value="19.809039937090837" />
+      <entry key="W1" value="19.972519481290192" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.006172197748934718" />
+      <entry key="MS500" value="0.36264292932687064" />
+      <entry key="S2" value="1.01485987131477" />
+      <entry key="S5" value="2.0855935206982745" />
+      <entry key="S10" value="3.5543622764944605" />
+      <entry key="S30" value="6.504129367274006" />
+      <entry key="S60" value="8.317795977055884" />
+      <entry key="M2" value="10.313273025843916" />
+      <entry key="M5" value="14.612877752681305" />
+      <entry key="M10" value="20.826088895435774" />
+      <entry key="M15" value="26.210221997080836" />
+      <entry key="M30" value="36.58700763372628" />
+      <entry key="H1" value="45.30863276552068" />
+      <entry key="H2" value="51.05180505829684" />
+      <entry key="H4" value="54.359405782612605" />
+      <entry key="D1" value="57.368621622074684" />
+      <entry key="W1" value="57.90917989166067" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8,
   &quot;fromUser&quot;: false
@@ -28,6 +113,21 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -35,16 +135,26 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
     "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/HP/OneDriveWind/OneDrive/SFEFUNIX/blockchaintrading/blockchaintrading/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "terminal",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -84,6 +194,9 @@
       <updated>1784089521917</updated>
       <workItem from="1784089523092" duration="405000" />
       <workItem from="1784089956220" duration="3131000" />
+      <workItem from="1784193712854" duration="119000" />
+      <workItem from="1784262088810" duration="6997000" />
+      <workItem from="1784275285867" duration="2911000" />
     </task>
     <task id="LOCAL-00001" summary="Merge two branch">
       <option name="closed" value="true" />
@@ -102,5 +215,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge two branch" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge two branch" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

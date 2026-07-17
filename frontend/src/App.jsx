@@ -4,11 +4,16 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import WindyLogo from './components/common/windy-logo.jsx';
 import SignUpForm from "./pages/SignUp.jsx";
+import SignInForm from "./pages/SignIn.jsx";
+import {BrowserRouter} from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes.jsx";
 
 function App() {
-  return (
-     <SignUpForm/>
-  )
+    return (
+        <BrowserRouter>
+            <AppRoutes />
+        </BrowserRouter>
+    );
 }
 
 
