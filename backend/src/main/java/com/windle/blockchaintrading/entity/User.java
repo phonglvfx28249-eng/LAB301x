@@ -1,11 +1,17 @@
 package com.windle.blockchaintrading.entity;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,10 +55,43 @@ public class Users {
         ACTIVE, LOCKED
     }
 
-    public Users() {
+    public User() {
     }
 
-    // Getters and Setters
+    // ==========================================
+    // SPRING SECURITY USERDETAILS OVERRIDES
+    // ==========================================
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Dynamically creates a list containing either [ROLE_USER] or [ROLE_ADMIN]
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + this.role.name()));
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // If status is LOCKED in the DB, this returns false and blocks their login
+        return this.status != Status.LOCKED;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true; // Default to true if you don't expire accounts over time
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true; // Default to true if you don't force periodic password resets
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true; // Default to true (change if you add email verification later)
+    }
+
+    // ==========================================
+    // GETTERS AND SETTERS
+    // ==========================================
 
     public Long getId() {
         return id;
@@ -62,6 +101,7 @@ public class Users {
         this.id = id;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
@@ -78,6 +118,7 @@ public class Users {
         this.email = email;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
@@ -128,7 +169,7 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +

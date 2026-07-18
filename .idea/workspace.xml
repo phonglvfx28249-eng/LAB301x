@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignIn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +22,12 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="88" />
+    <option name="cachedIndexableFilesCount" value="91" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -48,62 +48,65 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.2800285512309347E-41" />
-      <entry key="MS500" value="7.440264699851813E-9" />
-      <entry key="S2" value="0.009561563149772275" />
-      <entry key="S5" value="0.1914838666237267" />
-      <entry key="S10" value="0.589928432917961" />
-      <entry key="S30" value="1.4770435720302635" />
-      <entry key="S60" value="2.1595191379402054" />
-      <entry key="M2" value="3.34702908467513" />
-      <entry key="M5" value="6.734696830261974" />
-      <entry key="M10" value="11.513941605770004" />
-      <entry key="M15" value="15.48498907627517" />
-      <entry key="M30" value="22.94987434585112" />
-      <entry key="H1" value="29.120714444601024" />
-      <entry key="H2" value="33.151004908988895" />
-      <entry key="H4" value="35.46263700271412" />
-      <entry key="D1" value="37.56044548873468" />
-      <entry key="W1" value="37.9367849715671" />
+      <entry key="MS100" value="4.964225217597706E-6" />
+      <entry key="MS500" value="0.08693012323187425" />
+      <entry key="S2" value="0.542992527048799" />
+      <entry key="S5" value="0.7880831469034165" />
+      <entry key="S10" value="0.954335908621814" />
+      <entry key="S30" value="1.3708664459089732" />
+      <entry key="S60" value="1.6208565175321512" />
+      <entry key="M2" value="1.810659434093108" />
+      <entry key="M5" value="2.4266987384148875" />
+      <entry key="M10" value="3.7169997158046977" />
+      <entry key="M15" value="5.253912748404627" />
+      <entry key="M30" value="12.426728517660917" />
+      <entry key="H1" value="31.938073059322484" />
+      <entry key="H2" value="73.64953528610286" />
+      <entry key="H4" value="130.78103098982817" />
+      <entry key="D1" value="229.50980974824597" />
+      <entry key="W1" value="254.52507718213946" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.000000000212768" />
-      <entry key="MS500" value="1.0116463743756643" />
-      <entry key="S2" value="1.4075913885560207" />
-      <entry key="S5" value="2.269946610684317" />
-      <entry key="S10" value="3.325584596119524" />
-      <entry key="S30" value="5.290277255997051" />
-      <entry key="S60" value="6.338225302992623" />
-      <entry key="M2" value="7.077480641860497" />
-      <entry key="M5" value="7.938411937005601" />
-      <entry key="M10" value="9.356088978111044" />
-      <entry key="M15" value="10.762629978103387" />
-      <entry key="M30" value="13.663506348218835" />
-      <entry key="H1" value="16.2042857921022" />
-      <entry key="H2" value="17.91002478340946" />
-      <entry key="H4" value="18.901680033528315" />
-      <entry key="D1" value="19.809039937090837" />
-      <entry key="W1" value="19.972519481290192" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000024718112286" />
+      <entry key="S5" value="1.0057174993025995" />
+      <entry key="S10" value="1.0756141475029608" />
+      <entry key="S30" value="1.4228642984365987" />
+      <entry key="S60" value="1.6502903420474402" />
+      <entry key="M2" value="1.8109072369002923" />
+      <entry key="M5" value="2.097814680432265" />
+      <entry key="M10" value="2.7414416805873083" />
+      <entry key="M15" value="3.650417517042117" />
+      <entry key="M30" value="7.8224975512053" />
+      <entry key="H1" value="17.607177247548968" />
+      <entry key="H2" value="33.19311548613496" />
+      <entry key="H4" value="50.60151654942493" />
+      <entry key="D1" value="77.38091595048485" />
+      <entry key="W1" value="83.85139900311331" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.006172197748934718" />
-      <entry key="MS500" value="0.36264292932687064" />
-      <entry key="S2" value="1.01485987131477" />
-      <entry key="S5" value="2.0855935206982745" />
-      <entry key="S10" value="3.5543622764944605" />
-      <entry key="S30" value="6.504129367274006" />
-      <entry key="S60" value="8.317795977055884" />
-      <entry key="M2" value="10.313273025843916" />
-      <entry key="M5" value="14.612877752681305" />
-      <entry key="M10" value="20.826088895435774" />
-      <entry key="M15" value="26.210221997080836" />
-      <entry key="M30" value="36.58700763372628" />
-      <entry key="H1" value="45.30863276552068" />
-      <entry key="H2" value="51.05180505829684" />
-      <entry key="H4" value="54.359405782612605" />
-      <entry key="D1" value="57.368621622074684" />
-      <entry key="W1" value="57.90917989166067" />
+      <entry key="MS100" value="0.005226280468388865" />
+      <entry key="MS500" value="0.3653659047533414" />
+      <entry key="S2" value="1.123017361913133" />
+      <entry key="S5" value="1.5698063991857245" />
+      <entry key="S10" value="1.8985726883271297" />
+      <entry key="S30" value="2.7345227560018825" />
+      <entry key="S60" value="3.2370087439552946" />
+      <entry key="M2" value="3.602800076450785" />
+      <entry key="M5" value="4.514602351411716" />
+      <entry key="M10" value="6.450280608874619" />
+      <entry key="M15" value="8.89587197028401" />
+      <entry key="M30" value="20.23818062444253" />
+      <entry key="H1" value="49.5317055956064" />
+      <entry key="H2" value="106.82917175718572" />
+      <entry key="H4" value="181.37186976344836" />
+      <entry key="D1" value="306.887897722789" />
+      <entry key="W1" value="338.376035339839" />
     </decayedShown>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8,
@@ -132,32 +135,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/HP/OneDriveWind/OneDrive/SFEFUNIX/blockchaintrading/blockchaintrading/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/OneDriveWind/OneDrive/SFEFUNIX/blockchaintrading/blockchaintrading/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\OneDriveWind\OneDrive\SFEFUNIX\blockchaintrading\blockchaintrading\backend" />
@@ -196,7 +199,8 @@
       <workItem from="1784089956220" duration="3131000" />
       <workItem from="1784193712854" duration="119000" />
       <workItem from="1784262088810" duration="6997000" />
-      <workItem from="1784275285867" duration="2911000" />
+      <workItem from="1784275285867" duration="5662000" />
+      <workItem from="1784344125231" duration="12240000" />
     </task>
     <task id="LOCAL-00001" summary="Merge two branch">
       <option name="closed" value="true" />
