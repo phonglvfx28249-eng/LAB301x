@@ -66,44 +66,48 @@ export default function SignInForm() {
                     >
                         <div>
                             <input
-                                type="text"
-                                placeholder="Name"
-                                {...register("name", {
-                                    required: "Name is required",
+                                type="email"
+                                placeholder="Email"
+                                {...register("email", {
+                                    required: "Email is required",
+                                    pattern: {
+                                        value: EMAIL_REGEX,
+                                        message: "Enter a valid email address",
+                                    },
                                 })}
                                 className={`w-full px-4 py-2.5 rounded-md border bg-transparent text-sm text-gray-800 placeholder-gray-600 focus:outline-none focus:ring-2 ${
-                                    errors.name
+                                    errors.email
                                         ? "border-red-500 focus:ring-red-500"
                                         : "border-gray-700/70 focus:ring-[#107980]"
                                 }`}
                             />
-                            {errors.name && (
+                            {errors.email && (
                                 <p className="text-xs text-red-600 mt-1 ml-3">
-                                    {errors.name.message}
+                                    {errors.email.message}
                                 </p>
                             )}
                         </div>
 
                         <div>
                             <input
-                                type="text"
-                                placeholder="Email / sdt"
-                                {...register("emailOrPhone", {
-                                    required: "Email or phone number is required",
-                                    validate: (value) =>
-                                        EMAIL_REGEX.test(value) || PHONE_REGEX.test(value)
-                                            ? true
-                                            : "Enter a valid email or phone number",
+                                type="password"
+                                placeholder="Password"
+                                {...register("password", {
+                                    required: "Password is required",
+                                    minLength: {
+                                        value: 8,
+                                        message: "Password must be at least 8 characters",
+                                    },
                                 })}
                                 className={`w-full px-4 py-2.5 rounded-md border bg-transparent text-sm text-gray-800 placeholder-gray-600 focus:outline-none focus:ring-2 ${
-                                    errors.emailOrPhone
+                                    errors.password
                                         ? "border-red-500 focus:ring-red-500"
                                         : "border-gray-700/70 focus:ring-[#107980]"
                                 }`}
                             />
-                            {errors.emailOrPhone && (
+                            {errors.password && (
                                 <p className="text-xs text-red-600 mt-1 ml-3">
-                                    {errors.emailOrPhone.message}
+                                    {errors.password.message}
                                 </p>
                             )}
                         </div>

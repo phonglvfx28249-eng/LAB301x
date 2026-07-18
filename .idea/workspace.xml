@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/request/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/security/MyUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/security/MyUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignIn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,61 +50,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="4.964225217597706E-6" />
-      <entry key="MS500" value="0.08693012323187425" />
-      <entry key="S2" value="0.542992527048799" />
-      <entry key="S5" value="0.7880831469034165" />
-      <entry key="S10" value="0.954335908621814" />
-      <entry key="S30" value="1.3708664459089732" />
-      <entry key="S60" value="1.6208565175321512" />
-      <entry key="M2" value="1.810659434093108" />
-      <entry key="M5" value="2.4266987384148875" />
-      <entry key="M10" value="3.7169997158046977" />
-      <entry key="M15" value="5.253912748404627" />
-      <entry key="M30" value="12.426728517660917" />
-      <entry key="H1" value="31.938073059322484" />
-      <entry key="H2" value="73.64953528610286" />
-      <entry key="H4" value="130.78103098982817" />
-      <entry key="D1" value="229.50980974824597" />
-      <entry key="W1" value="254.52507718213946" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000024718112286" />
-      <entry key="S5" value="1.0057174993025995" />
-      <entry key="S10" value="1.0756141475029608" />
-      <entry key="S30" value="1.4228642984365987" />
-      <entry key="S60" value="1.6502903420474402" />
-      <entry key="M2" value="1.8109072369002923" />
-      <entry key="M5" value="2.097814680432265" />
-      <entry key="M10" value="2.7414416805873083" />
-      <entry key="M15" value="3.650417517042117" />
-      <entry key="M30" value="7.8224975512053" />
-      <entry key="H1" value="17.607177247548968" />
-      <entry key="H2" value="33.19311548613496" />
-      <entry key="H4" value="50.60151654942493" />
-      <entry key="D1" value="77.38091595048485" />
-      <entry key="W1" value="83.85139900311331" />
+      <entry key="S2" value="1.0000000000269504" />
+      <entry key="S5" value="1.0000684642623368" />
+      <entry key="S10" value="1.0120140297259788" />
+      <entry key="S30" value="1.4646459286985611" />
+      <entry key="S60" value="2.4559807521324926" />
+      <entry key="M2" value="5.098347986981988" />
+      <entry key="M5" value="15.197425469395036" />
+      <entry key="M10" value="36.35594173457845" />
+      <entry key="M15" value="57.63786506842903" />
+      <entry key="M30" value="103.55754125640087" />
+      <entry key="H1" value="154.67032484818367" />
+      <entry key="H2" value="216.84202320212148" />
+      <entry key="H4" value="288.47389352481366" />
+      <entry key="D1" value="408.8333981905451" />
+      <entry key="W1" value="439.500188208269" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="6.17106883021041E-257" />
+      <entry key="MS500" value="5.7289110349862985E-52" />
+      <entry key="S2" value="1.5470990947439736E-13" />
+      <entry key="S5" value="7.530316455968667E-6" />
+      <entry key="S10" value="0.0028729636728830445" />
+      <entry key="S30" value="0.1921957788611574" />
+      <entry key="S60" value="0.6916078229479866" />
+      <entry key="M2" value="2.062449369048864" />
+      <entry key="M5" value="6.237969574724116" />
+      <entry key="M10" value="10.254863740260333" />
+      <entry key="M15" value="12.663472407233925" />
+      <entry key="M30" value="17.86786635880009" />
+      <entry key="H1" value="27.58946941989362" />
+      <entry key="H2" value="43.79543882624147" />
+      <entry key="H4" value="62.94227917230293" />
+      <entry key="D1" value="93.92081294204775" />
+      <entry key="W1" value="101.62469177983552" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.005226280468388865" />
-      <entry key="MS500" value="0.3653659047533414" />
-      <entry key="S2" value="1.123017361913133" />
-      <entry key="S5" value="1.5698063991857245" />
-      <entry key="S10" value="1.8985726883271297" />
-      <entry key="S30" value="2.7345227560018825" />
-      <entry key="S60" value="3.2370087439552946" />
-      <entry key="M2" value="3.602800076450785" />
-      <entry key="M5" value="4.514602351411716" />
-      <entry key="M10" value="6.450280608874619" />
-      <entry key="M15" value="8.89587197028401" />
-      <entry key="M30" value="20.23818062444253" />
-      <entry key="H1" value="49.5317055956064" />
-      <entry key="H2" value="106.82917175718572" />
-      <entry key="H4" value="181.37186976344836" />
-      <entry key="D1" value="306.887897722789" />
-      <entry key="W1" value="338.376035339839" />
+      <entry key="MS100" value="7.440629892954892E-8" />
+      <entry key="MS500" value="0.037525107108912756" />
+      <entry key="S2" value="0.4401295068004519" />
+      <entry key="S5" value="0.7202302296067317" />
+      <entry key="S10" value="0.862318577787758" />
+      <entry key="S30" value="1.585434697115576" />
+      <entry key="S60" value="3.0900797027013045" />
+      <entry key="M2" value="7.100821809505433" />
+      <entry key="M5" value="21.375077410009563" />
+      <entry key="M10" value="46.56404020583181" />
+      <entry key="M15" value="70.26353109359397" />
+      <entry key="M30" value="121.39890279645422" />
+      <entry key="H1" value="182.23888746879766" />
+      <entry key="H2" value="260.6202029443896" />
+      <entry key="H4" value="351.4032973996238" />
+      <entry key="D1" value="502.7508721619215" />
+      <entry key="W1" value="541.1243597505259" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -200,7 +202,7 @@
       <workItem from="1784193712854" duration="119000" />
       <workItem from="1784262088810" duration="6997000" />
       <workItem from="1784275285867" duration="5662000" />
-      <workItem from="1784344125231" duration="12240000" />
+      <workItem from="1784344125231" duration="15083000" />
     </task>
     <task id="LOCAL-00001" summary="Merge two branch">
       <option name="closed" value="true" />

@@ -1,6 +1,6 @@
 package com.windle.blockchaintrading.dto.request;
 
-public record LoginRequest(
+public record RegisterRequest(
         String email,
         String password) {
 }
