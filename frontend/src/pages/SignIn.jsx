@@ -2,7 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import WindyLogo from "../components/common/windy-logo.jsx";
 import Button from "../components/common/Button.jsx";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom";
+import  {useAuth} from "../context/AuthContext.jsx";
+
 
 function GoogleIcon() {
     return (
@@ -37,11 +39,22 @@ export default function SignInForm() {
         formState: { errors, isSubmitting },
     } = useForm({ mode: "onBlur" });
 
+    const login = useAuth();
+    const navigate = useNavigate();
+
+
     const onSubmit = async (data) => {
 
 
         console.log(data);
-        // submit to API here, e.g. await api.signUp(data)
+        // submit to API here, e.g. await api.signIn(data)
+        try{
+            await login(data.email, data.password);
+            navigate("/dashboard");
+
+        } catch (error) {
+            console.error("Login error:", error);
+        }
     };
 
     return (

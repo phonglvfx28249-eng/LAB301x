@@ -49,6 +49,7 @@ public class AuthController {
     }
 
 
+    @PostMapping("/signup")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
 
 

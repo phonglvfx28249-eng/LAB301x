@@ -2,7 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import WindyLogo from "../components/common/windy-logo.jsx";
 import Button from "../components/common/Button.jsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {signupUser} from "../api/authApi.js";
 
 function GoogleIcon() {
     return (
@@ -36,11 +37,24 @@ export default function SignUpForm() {
         formState: { errors, isSubmitting },
     } = useForm({ mode: "onBlur" });
 
+    const navigate = useNavigate();
+
+
+
     const onSubmit = async (data) => {
 
         // services
         console.log(data);
         // submit to API here, e.g. await api.signUp(data)
+        try {
+            const data = await signupUser(data);
+            localStorage.setItem("token", data.token);
+            // Handle successful signup (e.g., redirect to login page)
+            navigate("/dashboard");
+        } catch (error) {
+            console.error("Signup error:", error);
+
+        }
     };
 
     return (
