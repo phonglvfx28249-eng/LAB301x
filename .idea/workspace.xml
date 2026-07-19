@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/authApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/authApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignIn.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUp.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/routes/AppRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/AppRoutes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/routes/ProtectedRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/ProtectedUserRoute.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,59 +54,59 @@
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000232144939" />
-      <entry key="S60" value="1.0002900692836583" />
-      <entry key="M2" value="1.0444275167668857" />
-      <entry key="M5" value="4.134083616054509" />
-      <entry key="M10" value="24.068415209400207" />
-      <entry key="M15" value="49.92079440551067" />
-      <entry key="M30" value="121.04251354448905" />
-      <entry key="H1" value="226.59160591885677" />
-      <entry key="H2" value="354.62042832087167" />
-      <entry key="H4" value="485.9430675748079" />
-      <entry key="D1" value="697.7681293946553" />
-      <entry key="W1" value="752.1932625810317" />
+      <entry key="S2" value="1.0001588620776918" />
+      <entry key="S5" value="1.053455208117239" />
+      <entry key="S10" value="1.4288746557108944" />
+      <entry key="S30" value="2.866178783087695" />
+      <entry key="S60" value="3.7963078096822582" />
+      <entry key="M2" value="4.995197443466456" />
+      <entry key="M5" value="9.880266228372587" />
+      <entry key="M10" value="19.92350084916959" />
+      <entry key="M15" value="29.648723859794302" />
+      <entry key="M30" value="58.03803446655016" />
+      <entry key="H1" value="131.5069626480066" />
+      <entry key="H2" value="277.7799235970183" />
+      <entry key="H4" value="467.52505850751015" />
+      <entry key="D1" value="817.2280987438653" />
+      <entry key="W1" value="913.4237716237039" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="5.5097945247336E-153" />
-      <entry key="S5" value="1.2486886415209056E-61" />
-      <entry key="S10" value="3.5336788783473954E-31" />
-      <entry key="S30" value="7.070825534252116E-11" />
-      <entry key="S60" value="8.510435679991656E-6" />
-      <entry key="M2" value="0.003309755640207064" />
-      <entry key="M5" value="0.22688521794833486" />
-      <entry key="M10" value="1.7301626250443956" />
-      <entry key="M15" value="4.066771944254691" />
-      <entry key="M30" value="11.856221237381114" />
-      <entry key="H1" value="25.70080227118959" />
-      <entry key="H2" value="47.09032530446774" />
-      <entry key="H4" value="73.30468457201266" />
-      <entry key="D1" value="119.56191368420167" />
-      <entry key="W1" value="131.78862375609447" />
+      <entry key="MS100" value="1.3716825421494243E-112" />
+      <entry key="MS500" value="4.240828621071123E-23" />
+      <entry key="S2" value="2.551894292423463E-6" />
+      <entry key="S5" value="0.005790886757042343" />
+      <entry key="S10" value="0.07609788170505616" />
+      <entry key="S30" value="0.4265356569348228" />
+      <entry key="S60" value="0.7253034980273364" />
+      <entry key="M2" value="1.1949043882384105" />
+      <entry key="M5" value="2.1665299550841906" />
+      <entry key="M10" value="3.973153464024103" />
+      <entry key="M15" value="5.963244890683483" />
+      <entry key="M30" value="11.400716401977503" />
+      <entry key="H1" value="21.926590881320177" />
+      <entry key="H2" value="42.8193454462509" />
+      <entry key="H4" value="73.96927256654793" />
+      <entry key="D1" value="139.39687695323224" />
+      <entry key="W1" value="158.4786089724453" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.47631899902196867" />
-      <entry key="MS500" value="0.8621435450175959" />
-      <entry key="S2" value="0.9635957930100821" />
-      <entry key="S5" value="0.9852761225190011" />
-      <entry key="S10" value="0.9926107608317578" />
-      <entry key="S30" value="0.997530851531859" />
-      <entry key="S60" value="0.9990615997585" />
-      <entry key="M2" value="1.0469894907808168" />
-      <entry key="M5" value="4.3583851816506" />
-      <entry key="M10" value="25.789776838046876" />
-      <entry key="M15" value="53.97395210073007" />
-      <entry key="M30" value="132.87945716818626" />
-      <entry key="H1" value="252.27199431789532" />
-      <entry key="H2" value="401.69201218450945" />
-      <entry key="H4" value="559.2328785411726" />
-      <entry key="D1" value="817.3258639030425" />
-      <entry key="W1" value="883.9812234615646" />
+      <entry key="MS100" value="0.8467453123625271" />
+      <entry key="MS500" value="0.9672763296139321" />
+      <entry key="S2" value="0.991876214768542" />
+      <entry key="S5" value="1.0549404518213992" />
+      <entry key="S10" value="1.4967972779804777" />
+      <entry key="S30" value="3.2795336931825885" />
+      <entry key="S60" value="4.509698918555846" />
+      <entry key="M2" value="6.178746150332029" />
+      <entry key="M5" value="12.036286018317126" />
+      <entry key="M10" value="23.8832506952384" />
+      <entry key="M15" value="35.596621395815035" />
+      <entry key="M30" value="69.42231814101089" />
+      <entry key="H1" value="153.41693433481" />
+      <entry key="H2" value="320.58261056542403" />
+      <entry key="H4" value="541.4795954660748" />
+      <entry key="D1" value="956.6201790483015" />
+      <entry key="W1" value="1071.9015953931148" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -218,7 +215,7 @@
       <workItem from="1784275285867" duration="5662000" />
       <workItem from="1784344125231" duration="15083000" />
       <workItem from="1784387258705" duration="4157000" />
-      <workItem from="1784426647134" duration="2134000" />
+      <workItem from="1784426647134" duration="9887000" />
     </task>
     <task id="LOCAL-00001" summary="Merge two branch">
       <option name="closed" value="true" />

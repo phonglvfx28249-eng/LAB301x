@@ -10,6 +10,7 @@ public interface UserService {
     boolean isEmailTaken(String email);
     void registerUser(String username, String email, String password, String fullName);
     List<User> getAllUsers();
+    User getUserByEmail(String email);
     User getUserById(Long id);
     void updateUser(Long id, String username, String email, String fullName);
     void deleteUser(Long id);

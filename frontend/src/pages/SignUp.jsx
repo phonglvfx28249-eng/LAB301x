@@ -51,7 +51,7 @@ export default function SignUpForm() {
             console.log(res);
             localStorage.setItem("token", res.token);
             // Handle successful signup (e.g., redirect to login page)
-            navigate("/dashboard");
+            navigate("/login");
         } catch (error) {
             console.error("Signup error:", error);
 

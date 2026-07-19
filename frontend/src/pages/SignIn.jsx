@@ -39,7 +39,7 @@ export default function SignInForm() {
         formState: { errors, isSubmitting },
     } = useForm({ mode: "onBlur" });
 
-    const login = useAuth();
+    const {login,user} = useAuth();
     const navigate = useNavigate();
 
 
@@ -50,7 +50,16 @@ export default function SignInForm() {
         // submit to API here, e.g. await api.signIn(data)
         try{
             await login(data.email, data.password);
-            navigate("/dashboard");
+            if(user){
+
+                if(user.role === "ADMIN"){
+                    navigate("/admin/dashboard");
+                } else{
+                    navigate("/user/dashboard");
+                }
+            } else{
+                throw new Error("User not found after login");
+            }
 
         } catch (error) {
             console.error("Login error:", error);
