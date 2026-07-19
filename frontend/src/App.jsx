@@ -7,12 +7,18 @@ import SignUpForm from "./pages/SignUp.jsx";
 import SignInForm from "./pages/SignIn.jsx";
 import {BrowserRouter} from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes.jsx";
+import {AuthProvider} from "./context/AuthContext.jsx";
+
 
 function App() {
     return (
-        <BrowserRouter>
-            <AppRoutes />
-        </BrowserRouter>
+        <AuthProvider>
+
+            <BrowserRouter>
+                <AppRoutes />
+            </BrowserRouter>
+
+        </AuthProvider>
     );
 }
 

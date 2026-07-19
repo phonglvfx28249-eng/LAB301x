@@ -1,5 +1,5 @@
 // src/api/authApi.js
-import springApi from "./axiosClient";
+import springApi from "./api.js";
 
 export const loginUser = async (email, password) => {
     const response = await springApi.post("/auth/login", { email, password });

@@ -21,7 +21,7 @@ export default function AppRoutes({isAuthenticated}){
             {/*    User dashboard*/}
             <Route path="/user" element={<ProtectedRoute/>}>
                 {/*dashboard page with protecd routed*/}
-                <Route path="/dashboard" element={<div>Dashboard</div>}/>
+                <Route path="dashboard" element={<div>Dashboard</div>}/>
             </Route>
 
         </Routes>

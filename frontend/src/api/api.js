@@ -23,4 +23,4 @@ springApi.interceptors.response.use(
     }
 );
 
-export default api;
+export default springApi;

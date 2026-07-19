@@ -47,8 +47,9 @@ export default function SignUpForm() {
         console.log(data);
         // submit to API here, e.g. await api.signUp(data)
         try {
-            const data = await signupUser(data);
-            localStorage.setItem("token", data.token);
+            const res = await signupUser(data);
+            console.log(res);
+            localStorage.setItem("token", res.token);
             // Handle successful signup (e.g., redirect to login page)
             navigate("/dashboard");
         } catch (error) {
