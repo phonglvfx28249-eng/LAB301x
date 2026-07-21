@@ -93,6 +93,7 @@ public class AuthController {
     }
 
 
+
     @GetMapping("/me")
     public ResponseEntity<?> getCurrentUser(Authentication authentication) {
         return ResponseEntity.ok(authentication.getPrincipal());
