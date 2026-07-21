@@ -1,6 +1,7 @@
 package com.windle.blockchaintrading.controller;
 
 
+import com.windle.blockchaintrading.dto.request.LoginRequest;
 import com.windle.blockchaintrading.entity.User;
 import com.windle.blockchaintrading.service.EmailService;
 import com.windle.blockchaintrading.service.UserService;
@@ -11,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/auth")
+@RequestMapping("/api/auth")
 public class EmailController {
 
     private EmailService emailService;
@@ -24,9 +25,12 @@ public class EmailController {
     }
 
 
-    @PostMapping("/reset_password")
-    public ResponseEntity<?> resetPassword(@RequestBody String email) {
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestBody LoginRequest request) {
+        String email = request.email();
+        System.out.println("reset password, Email: " + email);
         if(!userService.isEmailTaken(email)) {
+            System.out.println("Email not found: " + email);
             return ResponseEntity.badRequest().build();
         }
 

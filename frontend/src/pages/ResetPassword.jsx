@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Button from "../components/common/Button.jsx";
 import WindyLogo from "../components/common/windy-logo.jsx";
+import {resetPassword} from "../api/authApi.js";
+import {useNavigate} from "react-router-dom";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_REGEX = /^(0|\+84)[0-9]{9,10}$/;
@@ -13,9 +15,16 @@ export default function ResetPasswordForm() {
         formState: { errors, isSubmitting },
     } = useForm({ mode: "onBlur" });
 
+    const navigate = useNavigate();
+
     const onSubmit = async (data) => {
         console.log(data);
-        // submit to API here, e.g. await api.requestPasswordReset(data)
+        try{
+            const res = await resetPassword(data.email);
+            navigate("/login");
+        } catch (error) {
+            console.error("Error resetting password:", error);
+        }
     };
 
     return (
@@ -40,8 +49,8 @@ export default function ResetPasswordForm() {
                         <div>
                             <input
                                 type="text"
-                                placeholder="Email / sdt"
-                                {...register("emailOrPhone", {
+                                placeholder="Email"
+                                {...register("email", {
                                     required: "Email or phone number is required",
                                     validate: (value) =>
                                         EMAIL_REGEX.test(value) || PHONE_REGEX.test(value)

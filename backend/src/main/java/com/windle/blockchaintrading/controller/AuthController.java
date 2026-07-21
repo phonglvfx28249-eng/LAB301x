@@ -85,7 +85,7 @@ public class AuthController {
         }
 
         //save to DB
-        userService.registerUser("", request.email(), request.password(), "");
+        userService.registerUser(request.email(), request.email(), request.password(), "");
 
         // response with JWT
         String token = jwtUtil.generateToken(request.email());
