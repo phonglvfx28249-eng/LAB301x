@@ -6,8 +6,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -46,6 +48,27 @@ public class User implements UserDetails {
 
     @Column(name = "updated_at", insertable = false, updatable = false)
     private LocalDateTime updatedAt;
+
+    // ==========================================
+    // RELATIONSHIPS
+    // ==========================================
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Wallet> wallets = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<AuditLog> auditLogs = new ArrayList<>();
+
+    // Trades where this user was the buyer
+    @OneToMany(mappedBy = "buyer")
+    private List<Trade> boughtTrades = new ArrayList<>();
+
+    // Trades where this user was the seller
+    @OneToMany(mappedBy = "seller")
+    private List<Trade> soldTrades = new ArrayList<>();
 
     public enum Role {
         ADMIN, USER
@@ -165,6 +188,46 @@ public class User implements UserDetails {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public List<Wallet> getWallets() {
+        return wallets;
+    }
+
+    public void setWallets(List<Wallet> wallets) {
+        this.wallets = wallets;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public List<AuditLog> getAuditLogs() {
+        return auditLogs;
+    }
+
+    public void setAuditLogs(List<AuditLog> auditLogs) {
+        this.auditLogs = auditLogs;
+    }
+
+    public List<Trade> getBoughtTrades() {
+        return boughtTrades;
+    }
+
+    public void setBoughtTrades(List<Trade> boughtTrades) {
+        this.boughtTrades = boughtTrades;
+    }
+
+    public List<Trade> getSoldTrades() {
+        return soldTrades;
+    }
+
+    public void setSoldTrades(List<Trade> soldTrades) {
+        this.soldTrades = soldTrades;
     }
 
     @Override

@@ -1,16 +1,3 @@
-/**
- * Mock OHLC datasets for W/USD, one per interval, so you can see interval
- * switching work end-to-end before your real backend is ready.
- *
- * IMPORTANT time format rule (lightweight-charts):
- * - Daily/weekly candles ("D", "W")   -> time as "YYYY-MM-DD" string
- * - Intraday candles ("1S","15","60","240") -> time as UNIX seconds (number)
- *
- * Replace this whole file with a real API call once you have one, e.g.:
- *   const res = await fetch(`/api/candles?symbol=WUSD&interval=${interval}`);
- *   const data = await res.json();
- */
-
 function makeIntradayCandles(count, stepSeconds, startPrice) {
     const now = Math.floor(Date.now() / 1000);
     const start = now - count * stepSeconds;
