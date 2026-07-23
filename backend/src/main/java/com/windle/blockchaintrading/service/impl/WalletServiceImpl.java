@@ -35,8 +35,6 @@ public class WalletServiceImpl implements WalletService {
 
         Wallet wallet = new Wallet();
         wallet.setUser(user);
-        wallet.setAvailableBalance(BigDecimal.ZERO);
-        wallet.setLockedBalance(BigDecimal.ZERO);
 
         return walletRepository.save(wallet);
     }

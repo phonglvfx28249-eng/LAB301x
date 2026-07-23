@@ -1,5 +1,6 @@
 package com.windle.blockchaintrading.entity;
 
+import com.windle.blockchaintrading.audit.AuditListener;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -7,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "wallet_transactions")
+@EntityListeners(AuditListener.class)
 public class WalletTransaction {
 
     @Id

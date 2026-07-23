@@ -41,6 +41,14 @@ public class AuditLog {
     public AuditLog() {
     }
 
+    public AuditLog(User user, String action, String entityName, Long entityId, String description) {
+        this.user = user;
+        this.action = action;
+        this.entityName = entityName;
+        this.entityId = entityId;
+        this.description = description;
+    }
+
     // ==========================================
     // GETTERS AND SETTERS
     // ==========================================

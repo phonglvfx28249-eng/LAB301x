@@ -1,5 +1,6 @@
 package com.windle.blockchaintrading.entity;
 
+import com.windle.blockchaintrading.audit.AuditListener;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@EntityListeners(AuditListener.class)
 public class User implements UserDetails {
 
     @Id

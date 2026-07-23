@@ -1,9 +1,11 @@
 package com.windle.blockchaintrading.entity;
 
+import com.windle.blockchaintrading.audit.AuditListener;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "block_transactions")
+@EntityListeners(AuditListener.class)
 public class BlockTransaction {
 
     @Id

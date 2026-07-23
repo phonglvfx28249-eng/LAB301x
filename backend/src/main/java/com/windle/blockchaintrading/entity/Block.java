@@ -1,5 +1,6 @@
 package com.windle.blockchaintrading.entity;
 
+import com.windle.blockchaintrading.audit.AuditListener;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "blocks")
+@EntityListeners(AuditListener.class)
 public class Block {
 
     @Id

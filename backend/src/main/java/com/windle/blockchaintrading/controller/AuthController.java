@@ -5,6 +5,8 @@ import com.windle.blockchaintrading.dto.request.RegisterRequest;
 import com.windle.blockchaintrading.dto.response.AuthResponse;
 import com.windle.blockchaintrading.dto.response.ErrorResponse;
 import com.windle.blockchaintrading.entity.User;
+import com.windle.blockchaintrading.service.UserService;
+import com.windle.blockchaintrading.service.WalletService;
 import com.windle.blockchaintrading.service.impl.UserServiceImpl;
 import com.windle.blockchaintrading.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +25,19 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
 
-    private final UserServiceImpl userService;
+    private final UserService userService;
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
+    private final WalletService walletService;
 
     @Autowired
-    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil, UserServiceImpl userService, PasswordEncoder passwordEncoder) {
+    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil, UserServiceImpl userService, PasswordEncoder passwordEncoder, WalletService walletService) {
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
+        this.walletService = walletService;
     }
 
     @PostMapping("/login")
@@ -86,6 +90,9 @@ public class AuthController {
 
         //save to DB
         userService.registerUser(request.email(), request.email(), request.password(), "");
+        walletService.createWalletForUser(userService.getUserByEmail(request.email()).getId()); // create wallet for user each user have 1 wallet.
+
+
 
         // response with JWT
         String token = jwtUtil.generateToken(request.email());
