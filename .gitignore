@@ -13,6 +13,9 @@ backend/.mvn/wrapper/maven-wrapper.jar
 .springBeans
 .sts4-cache
 
+# application.properties
+backend/src/main/resources/application.properties
+
 ### IntelliJ IDEA ###
 backend/.idea
 *.iws

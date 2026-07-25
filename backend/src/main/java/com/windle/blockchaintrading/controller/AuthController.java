@@ -4,6 +4,7 @@ import com.windle.blockchaintrading.dto.request.LoginRequest;
 import com.windle.blockchaintrading.dto.request.RegisterRequest;
 import com.windle.blockchaintrading.dto.response.AuthResponse;
 import com.windle.blockchaintrading.dto.response.ErrorResponse;
+import com.windle.blockchaintrading.dto.response.UserResponse;
 import com.windle.blockchaintrading.entity.User;
 import com.windle.blockchaintrading.service.UserService;
 import com.windle.blockchaintrading.service.WalletService;
@@ -102,7 +103,14 @@ public class AuthController {
 
 
     @GetMapping("/me")
-    public ResponseEntity<?> getCurrentUser(Authentication authentication) {
-        return ResponseEntity.ok(authentication.getPrincipal());
+    public ResponseEntity<UserResponse> getCurrentUser(Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        System.out.println("Authenticating user and give user info back");
+
+        User user = (User) authentication.getPrincipal();
+
+        return ResponseEntity.ok(UserResponse.fromEntity(user));
     }
 }

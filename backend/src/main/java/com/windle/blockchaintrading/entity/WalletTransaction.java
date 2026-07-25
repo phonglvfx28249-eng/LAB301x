@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "wallet_transactions")
 @EntityListeners(AuditListener.class)
-public class WalletTransaction {
+public class    WalletTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

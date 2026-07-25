@@ -1,6 +1,9 @@
 import React from "react";
 import TopBar from "../components/common/TopBar.jsx";
 import {useAuth} from "../context/AuthContext.jsx";
+import {Link} from "react-router-dom";
+import {ArrowLeft} from "lucide-react";
+import WindyLogo from "../components/common/windy-logo.jsx";
 
 
 const coins = [
@@ -16,14 +19,20 @@ const coins = [
 
 export default function UserDashboard() {
 
-    const user = useAuth();
+    const {user} = useAuth();
+    console.log(user);
 
     return (
         <div className="min-h-screen w-full bg-[#EAE3D5] px-8 py-6">
             {/* User name */}
-            <h1 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                {user.username}
-            </h1>
+            <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                    <h1 className="font-serif text-2xl font-bold text-gray-900">
+                        {user.username}
+                    </h1>
+                </div>
+                <WindyLogo />
+            </div>
 
             {/* Top bar */}
             <TopBar amount={1000} currency="USD" />

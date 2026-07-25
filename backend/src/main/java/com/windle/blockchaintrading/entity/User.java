@@ -1,5 +1,6 @@
 package com.windle.blockchaintrading.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.windle.blockchaintrading.audit.AuditListener;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -29,6 +30,7 @@ public class User implements UserDetails {
     private String email;
 
     @Column(name = "password", nullable = false, length = 255)
+    @JsonIgnore
     private String password;
 
     @Column(name = "full_name", length = 100)

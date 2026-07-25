@@ -8,6 +8,8 @@ import ProtectedAdminRoute from "./ProtectedAdminRoute.jsx";
 import UserDashboard from "../pages/UserDashboard.jsx";
 import AccountDashboard from "../pages/AccountDashboard.jsx";
 import MarketDashboard from "../pages/MarketDashboard.jsx";
+import HistoryDashboard from "../pages/HistoryDashboard.jsx";
+
 
 
 
@@ -27,12 +29,13 @@ export default function AppRoutes({isAuthenticated}){
 
 
             {/*    User dashboard*/}
-            {/*<Route path="/user" element={<ProtectedUserRoute/>}>*/}
+            <Route path="/user" element={<ProtectedUserRoute/>}>
                 {/*dashboard page with protected routing*/}
                 <Route path="/user/dashboard" element={<UserDashboard/>}/>
                 <Route path="/user/account" element={<AccountDashboard/>}/>
+                <Route path="/user/history" element={<HistoryDashboard/>}/>
 
-            {/*</Route>*/}
+            </Route>
 
             <Route path="/admin" element={<ProtectedAdminRoute/>}>
                 <Route path="dashboard" element={<div>Admin Dashboard</div>}/>

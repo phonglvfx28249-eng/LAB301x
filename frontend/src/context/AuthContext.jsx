@@ -21,10 +21,7 @@ export function AuthProvider({ children }) {
             try {
                 // Fire a request to the secure endpoint.
                 // Manual header addition ensures it carries the token even if interceptors haven't mounted yet.
-                const response = await springApi.get("/auth/me", {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
-
+                const response = await springApi.get("/auth/me");
                 // Backend sent back a 200 OK! Token is valid.
                 setUser(response.data);
                 setIsLoading(false);
