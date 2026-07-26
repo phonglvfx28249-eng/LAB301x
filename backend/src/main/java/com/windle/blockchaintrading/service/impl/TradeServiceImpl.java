@@ -8,6 +8,7 @@ import com.windle.blockchaintrading.repository.TradeRepository;
 import com.windle.blockchaintrading.repository.UserRepository;
 import com.windle.blockchaintrading.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -75,8 +76,8 @@ public class TradeServiceImpl implements TradeService {
     }
 
     @Override
-    public List<Trade> getTradesByUserId(Long userId) {
-        return tradeRepository.findByBuyerIdOrSellerId(userId, userId);
+    public List<Trade> getTradesByUserId(Long userId, Pageable pageable) {
+        return tradeRepository.findByBuyerIdOrSellerId(userId, userId, pageable);
     }
 
     @Override

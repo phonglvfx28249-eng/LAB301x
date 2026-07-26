@@ -1,6 +1,7 @@
 package com.windle.blockchaintrading.repository;
 
 import com.windle.blockchaintrading.entity.Trade;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +14,7 @@ public interface TradeRepository extends JpaRepository<Trade, Long> {
 
     List<Trade> findBySellerId(Long sellerId);
 
-    List<Trade> findByBuyerIdOrSellerId(Long buyerId, Long sellerId);
+    List<Trade> findByBuyerIdOrSellerId(Long buyerId, Long sellerId, Pageable pageable);
 
     List<Trade> findByBuyOrderId(Long buyOrderId);
 

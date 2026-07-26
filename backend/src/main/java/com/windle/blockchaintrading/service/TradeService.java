@@ -1,6 +1,7 @@
 package com.windle.blockchaintrading.service;
 
 import com.windle.blockchaintrading.entity.Trade;
+import org.springframework.data.domain.Pageable;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,7 +15,7 @@ public interface TradeService {
 
     Trade getTradeById(Long id);
 
-    List<Trade> getTradesByUserId(Long userId);
+    List<Trade> getTradesByUserId(Long userId, Pageable pageable);
 
     List<Trade> getTradesByBuyOrderId(Long buyOrderId);
 
