@@ -3,13 +3,14 @@ package com.windle.blockchaintrading.audit;
 import com.windle.blockchaintrading.entity.AuditLog;
 import com.windle.blockchaintrading.entity.User;
 import com.windle.blockchaintrading.repository.AuditLogRepository;
+import com.windle.blockchaintrading.repository.UserRepository;
 import com.windle.blockchaintrading.util.BeanUtil;
 import jakarta.persistence.*;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.lang.reflect.Field;
-import java.util.Objects;
 
 public class AuditListener {
 
@@ -30,18 +31,18 @@ public class AuditListener {
 
     private void logAction(Object entity, String action) {
         try {
-            // 1. Get Entity Name (e.g., "Trade", "Order", "Block")
-            String entityName = entity.getClass().getSimpleName().toUpperCase();
-
-            // 2. Extract Primary Key (entity_id) dynamically using Reflection
-            Long entityId = getEntityId(entity);
-
-            // 3. Prevent infinite recursion (don't log the logging table itself)
+            // 1. Prevent infinite recursion (don't log the logging table itself)
             if (entity instanceof AuditLog) {
                 return;
             }
 
-            // 4. Fetch current user ID (optional: integration with Spring Security)
+            // 2. Get Entity Name (e.g., "Trade", "Order", "Block")
+            String entityName = entity.getClass().getSimpleName().toUpperCase();
+
+            // 3. Extract Primary Key (entity_id) dynamically using Reflection
+            Long entityId = getEntityId(entity);
+
+            // 4. Fetch current user safely
             User currentUser = getCurrentUser();
 
             // 5. Construct the audit log
@@ -79,9 +80,44 @@ public class AuditListener {
         return null;
     }
 
-    // Example helper for user ID (replace with SecurityContextHolder if using Spring Security)
+    // Safe retrieval of the authenticated user
     private User getCurrentUser() {
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        return (User) Objects.requireNonNull(SecurityContextHolder.getContext().getAuthentication()).getPrincipal();
+            if (authentication == null || !authentication.isAuthenticated()) {
+                return null;
+            }
+
+            Object principal = authentication.getPrincipal();
+
+            // Case A: Principal is directly  custom User entity
+            if (principal instanceof User) {
+                return (User) principal;
+            }
+
+            // Case B: Principal is Spring Security's UserDetails
+            if (principal instanceof UserDetails) {
+                String username = ((UserDetails) principal).getUsername();
+                UserRepository userRepository = BeanUtil.getBean(UserRepository.class);
+                return userRepository.findByUsername(username).orElse(null);
+            }
+
+            // Case C: Principal is a String (e.g., JWT subject or "anonymousUser")
+            if (principal instanceof String) {
+                String username = (String) principal;
+                if ("anonymousUser".equals(username)) {
+                    return null;
+                }
+                UserRepository userRepository = BeanUtil.getBean(UserRepository.class);
+                return userRepository.findByUsername(username).orElse(null);
+            }
+
+        } catch (Exception e) {
+            // Log or ignore errors during auditing user lookup
+            return null;
+        }
+
+        return null;
     }
 }

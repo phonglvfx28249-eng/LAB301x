@@ -8,18 +8,23 @@ import com.windle.blockchaintrading.entity.User;
 import com.windle.blockchaintrading.entity.Wallet;
 import com.windle.blockchaintrading.entity.WalletTransaction;
 import com.windle.blockchaintrading.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/user/resources")
 public class UserResourcesController {
+    private static final Logger log = LoggerFactory.getLogger(UserResourcesController.class);
     // create service injection
     private UserService userService;
     private WalletService walletService;
@@ -45,8 +50,11 @@ public class UserResourcesController {
     public ResponseEntity<?> getWalletResourcesByUser(Authentication authentication){
         try{
             User user = (User) authentication.getPrincipal();
+            System.out.println("Fetching wallet resources for user: " + user.getId());
+
             Wallet wallet = walletService.getWalletByUserId(user.getId());
             if(wallet == null){
+                System.out.println("Wallet not found for user: " + user.getId());
                 return ResponseEntity.status(404).body("Wallet not found for user");
             }
             // Proceed with fetching wallet resources for the authenticated user
@@ -54,6 +62,8 @@ public class UserResourcesController {
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error occurred while fetching wallet resources");
         }
+
+
 
     }
 
@@ -73,14 +83,15 @@ public class UserResourcesController {
 
     // get user page base on pagination
     @GetMapping("/trade")
-    public ResponseEntity<?> getTradeResourcesByUser(Authentication authentication, @RequestParam Long page){
+    public ResponseEntity<?> getTradeResourcesByUser(Authentication authentication, @RequestParam int page){
         try{
             User user = (User) authentication.getPrincipal();
             // Fetch trade resources for the authenticated user
-            Pageable tradePageable = PageRequest.of(page.intValue(), 10); // Assuming you want to fetch 10 trades per page
-            List<UserTradeResponse> trades = tradeService.getTradesByUserId(user.getId(),tradePageable).stream().map(UserTradeResponse::fromEntity).toList();
+            int pageIndex = Math.max(0, page - 1); // Adjust for 0-based page index
+            Page<UserTradeResponse> trades = tradeService.getUserTradesPaginated(user.getId(), pageIndex, 10);
             return ResponseEntity.ok(trades);
         } catch (Exception e) {
+            log.error("Error occurred while fetching trade resources", e);
             return ResponseEntity.status(500).body("Error occurred while fetching trade resources");
         }
 
@@ -92,7 +103,7 @@ public class UserResourcesController {
         try {
             User user = (User) authentication.getPrincipal();
             // Fetch trade resource for the authenticated user by trade_id
-            UserTradeResponse trade = UserTradeResponse.fromEntity(tradeService.getTradeById(trade_id));
+            UserTradeResponse trade = tradeService.getTradeByIdAndUserId(trade_id, user.getId());
             if (trade == null) {
                 return ResponseEntity.status(404).body("Trade not found for user");
             }
@@ -103,7 +114,13 @@ public class UserResourcesController {
         }
     }
 
-
-
+    @GetMapping("/trade/total_quantity")
+    public BigDecimal getTotalCoinsOwnedByUser(Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+        System.out.println("Calculate coins for user:" + user.getId());
+        BigDecimal quantity = tradeService.calculateTotalCoinsOwnedByUserId(user.getId());
+        System.out.println("Total coins owned by user " + user.getId() + ": " + quantity);
+        return quantity;
+    }
 
 }

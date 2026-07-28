@@ -1,6 +1,8 @@
 package com.windle.blockchaintrading.service;
 
+import com.windle.blockchaintrading.dto.response.UserTradeResponse;
 import com.windle.blockchaintrading.entity.Trade;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.math.BigDecimal;
@@ -20,4 +22,10 @@ public interface TradeService {
     List<Trade> getTradesByBuyOrderId(Long buyOrderId);
 
     List<Trade> getTradesBySellOrderId(Long sellOrderId);
+
+    Page<UserTradeResponse> getUserTradesPaginated(Long userId, int page, int size);
+
+    BigDecimal calculateTotalCoinsOwnedByUserId(Long userId);
+
+    UserTradeResponse getTradeByIdAndUserId(Long tradeId, Long userId);
 }

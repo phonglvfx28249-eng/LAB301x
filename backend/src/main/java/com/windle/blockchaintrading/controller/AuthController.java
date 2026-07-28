@@ -90,10 +90,16 @@ public class AuthController {
         }
 
         //save to DB
-        userService.registerUser(request.email(), request.email(), request.password(), "");
-        walletService.createWalletForUser(userService.getUserByEmail(request.email()).getId()); // create wallet for user each user have 1 wallet.
-
-
+        try{
+            System.out.println("Registering user with email: " + request.email());
+            userService.registerUser(request.email(), request.email(), request.password(), "");
+            walletService.createWalletForUser(userService.getUserByEmail(request.email()).getId()); // create wallet for user each user have 1 wallet.
+        } catch (Exception e) {
+            System.out.println("Error occurred while registering user: " + e.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorResponse("Error occurred while registering user"));
+        }
 
         // response with JWT
         String token = jwtUtil.generateToken(request.email());

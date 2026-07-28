@@ -22,10 +22,10 @@ public class Wallet {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "available_balance", precision = 28, scale = 8, nullable = false)
+    @Column(name = "available_balance", precision = 28, scale = 8, nullable = true)
     private BigDecimal availableBalance;
 
-    @Column(name = "locked_balance", precision = 28, scale = 8, nullable = false)
+    @Column(name = "locked_balance", precision = 28, scale = 8, nullable = true)
     private BigDecimal lockedBalance;
 
     @Column(name = "created_at", insertable = false, updatable = false)

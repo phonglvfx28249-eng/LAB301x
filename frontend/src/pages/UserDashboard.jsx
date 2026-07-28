@@ -1,26 +1,40 @@
 import React from "react";
 import TopBar from "../components/common/TopBar.jsx";
-import {useAuth} from "../context/AuthContext.jsx";
-import {Link} from "react-router-dom";
-import {ArrowLeft} from "lucide-react";
+import { useAuth } from "../context/AuthContext.jsx";
 import WindyLogo from "../components/common/windy-logo.jsx";
-
-
-const coins = [
-    {
-        id: "wid",
-        symbol: "W",
-        name: "WID",
-        marketPrice: "1,00322",
-        quantity: "0",
-        amount: "0",
-    },
-];
+import { useUserResources } from "../context/UserResourcesContext.jsx";
 
 export default function UserDashboard() {
+    const { user } = useAuth();
+    const { wallet, totalCoinsOwned, loading } = useUserResources();
 
-    const {user} = useAuth();
-    console.log(user);
+    // 1. Loading Guard: Wait until initial data is fetched
+    if (loading || !wallet) {
+        return (
+            <div className="min-h-screen w-full bg-[#EAE3D5] px-8 py-6 flex items-center justify-center">
+                <p className="text-gray-700 font-medium">Loading user resources...</p>
+            </div>
+        );
+    }
+
+    // 2. Safely resolve wallet balance (handles camelCase and fallback)
+    const availableBalance = wallet.availableBalance ?? wallet.available_balance ?? 0;
+
+    // Data for the table
+    const marketPriceNum = 1.00322;
+    const quantityNum = parseFloat(totalCoinsOwned) || 0;
+    const totalAmount = (marketPriceNum * quantityNum).toFixed(2);
+
+    const coins = [
+        {
+            id: "wid",
+            symbol: "W",
+            name: "WID",
+            marketPrice: marketPriceNum.toFixed(5),
+            quantity: quantityNum,
+            amount: totalAmount,
+        },
+    ];
 
     return (
         <div className="min-h-screen w-full bg-[#EAE3D5] px-8 py-6">
@@ -28,19 +42,19 @@ export default function UserDashboard() {
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                     <h1 className="font-serif text-2xl font-bold text-gray-900">
-                        {user.username}
+                        {user?.username || "User"}
                     </h1>
                 </div>
                 <WindyLogo />
             </div>
 
             {/* Top bar */}
-            <TopBar amount={1000} currency="USD" />
+            <TopBar amount={availableBalance} currency="USD" />
 
             {/* Table */}
-            <table className="w-full text-sm">
+            <table className="w-full text-sm mt-6">
                 <thead>
-                <tr className="text-gray-900 font-semibold">
+                <tr className="text-gray-900 font-semibold border-b border-gray-300">
                     <th className="text-left py-3 font-semibold w-12"></th>
                     <th className="text-left py-3 font-semibold">Coin</th>
                     <th className="text-left py-3 font-semibold">Market price</th>
@@ -51,16 +65,16 @@ export default function UserDashboard() {
                 </thead>
                 <tbody>
                 {coins.map((coin) => (
-                    <tr key={coin.id} className="text-gray-800">
+                    <tr key={coin.id} className="text-gray-800 border-b border-gray-200">
                         <td className="py-3">
-                            <div className="font-extrabold tracking-tight text-brand text-emerald-600 text-stroke-1 text-stroke-color-black text-xl">
+                            <div className="font-extrabold tracking-tight text-emerald-600 text-xl">
                                 {coin.symbol}
                             </div>
                         </td>
                         <td className="py-3">{coin.name}</td>
                         <td className="py-3">{coin.marketPrice}</td>
                         <td className="py-3">{coin.quantity}</td>
-                        <td className="py-3">{coin.amount}</td>
+                        <td className="py-3">${coin.amount}</td>
                         <td className="py-3">
                             <button className="text-green-600 hover:underline font-medium">
                                 Long

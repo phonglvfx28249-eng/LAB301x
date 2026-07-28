@@ -5,6 +5,7 @@ import com.windle.blockchaintrading.entity.Wallet;
 import com.windle.blockchaintrading.repository.UserRepository;
 import com.windle.blockchaintrading.repository.WalletRepository;
 import com.windle.blockchaintrading.service.WalletService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class WalletServiceImpl implements WalletService {
         return walletRepository.existsByUserId(userId);
     }
 
+    @Transactional
     @Override
     public Wallet createWalletForUser(Long userId) {
         User user = userRepository.findById(userId)
@@ -35,6 +37,8 @@ public class WalletServiceImpl implements WalletService {
 
         Wallet wallet = new Wallet();
         wallet.setUser(user);
+        wallet.setAvailableBalance(BigDecimal.valueOf(100)); //
+        wallet.setLockedBalance(BigDecimal.ZERO);
 
         return walletRepository.save(wallet);
     }
@@ -60,7 +64,7 @@ public class WalletServiceImpl implements WalletService {
             throw new IllegalArgumentException("Deposit amount must be greater than zero");
         }
 
-        walletRepository.findById(walletId).ifPresent(wallet -> {
+        walletRepository.findByIdWithLock(walletId).ifPresent(wallet -> {
             wallet.setAvailableBalance(wallet.getAvailableBalance().add(amount));
             walletRepository.save(wallet);
         });
@@ -72,7 +76,7 @@ public class WalletServiceImpl implements WalletService {
             throw new IllegalArgumentException("Withdrawal amount must be greater than zero");
         }
 
-        Wallet wallet = walletRepository.findById(walletId)
+        Wallet wallet = walletRepository.findByIdWithLock(walletId)
                 .orElseThrow(() -> new RuntimeException("Wallet not found with id: " + walletId));
 
         if (wallet.getAvailableBalance().compareTo(amount) < 0) {
@@ -89,7 +93,7 @@ public class WalletServiceImpl implements WalletService {
             throw new IllegalArgumentException("Amount to lock must be greater than zero");
         }
 
-        Wallet wallet = walletRepository.findById(walletId)
+        Wallet wallet = walletRepository.findByIdWithLock(walletId)
                 .orElseThrow(() -> new RuntimeException("Wallet not found with id: " + walletId));
 
         if (wallet.getAvailableBalance().compareTo(amount) < 0) {
@@ -107,7 +111,7 @@ public class WalletServiceImpl implements WalletService {
             throw new IllegalArgumentException("Amount to unlock must be greater than zero");
         }
 
-        Wallet wallet = walletRepository.findById(walletId)
+        Wallet wallet = walletRepository.findByIdWithLock(walletId)
                 .orElseThrow(() -> new RuntimeException("Wallet not found with id: " + walletId));
 
         if (wallet.getLockedBalance().compareTo(amount) < 0) {
