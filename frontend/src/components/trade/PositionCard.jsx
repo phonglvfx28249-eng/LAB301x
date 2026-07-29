@@ -1,14 +1,15 @@
 import React from "react";
-import { ArrowUp, ArrowDown } from "lucide-react";
+import { ArrowUp, ArrowDown, X } from "lucide-react";
 
 export default function PositionCard({
-     type = "Sell order", // "Sell order" | "Buy order"
-     price,
-     marketPrice,
-     amount,
-     duration,
-     roi,
- }) {
+                                         type = "Sell order", // "Sell order" | "Buy order"
+                                         price,
+                                         marketPrice,
+                                         amount,
+                                         duration,
+                                         roi,
+                                         onClose,
+                                     }) {
     const isSell = type === "Sell order";
     const roiPositive = !roi.trim().startsWith("-");
     const labelColor = isSell ? "text-red-500" : "text-green-600";
@@ -44,6 +45,14 @@ export default function PositionCard({
                     <ArrowDown size={16} className="text-red-500" strokeWidth={2.5} />
                 )}
             </div>
+
+            <button
+                onClick={onClose}
+                aria-label={`Close ${type}`}
+                className="ml-4 p-1.5 rounded-md text-red-500 border border-red-500/40 hover:bg-red-500 hover:text-white transition-colors"
+            >
+                <X size={14} strokeWidth={2.5} />
+            </button>
         </div>
     );
 }

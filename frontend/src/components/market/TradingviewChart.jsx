@@ -1,20 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { createChart, ColorType, CandlestickSeries } from "lightweight-charts";
 
-/**
- * Custom candlestick chart for your own coin (e.g. W/USD), rendered with
- * TradingView's open-source `lightweight-charts` library — NOT the iframe
- * widget. This draws directly onto a canvas we own, so it supports true
- * transparency and works with any manual OHLC data you provide, unlike
- * the widget which only charts symbols TradingView itself lists.
- *
- * npm install lightweight-charts
- *
- * `data` shape (each candle):
- * { time: "2026-07-01", open: 66.2, high: 68.1, low: 65.0, close: 67.4 }
- * `time` can be a "YYYY-MM-DD" string, or a UNIX timestamp (seconds) for
- * intraday granularity.
- */
+// custom coin
 export default function CandleChart({
                                         data = MOCK_W_USD_DATA,
                                         height = 300,

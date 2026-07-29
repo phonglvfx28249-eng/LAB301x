@@ -21,4 +21,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findBySideAndStatus(Order.Side side, Order.OrderStatus status);
 
     List<Order> findBySideAndOrderTypeAndStatus(Order.Side side, Order.OrderType orderType, Order.OrderStatus status);
+
+    List<Order> findTop10BySideOrderByCreatedAt(Order.Side side);
 }

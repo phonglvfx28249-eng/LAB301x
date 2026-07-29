@@ -3,23 +3,17 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BackgroundAgentGlobalSettings">
+    <option name="selectedModelId" value="auto" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/audit/AuditListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/audit/AuditListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/UserResourcesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/UserResourcesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/response/UserTradeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/response/UserTradeResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/Wallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/OrderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/TradeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/TradeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/WalletRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/TradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/TradeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/TradeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/TradeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/WalletServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/WalletServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/routes/AppRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/AppRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/routes/ProtectedUserRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/ProtectedUserRoute.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/market/TradingviewChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/market/TradingviewChart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/trade/PositionCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/trade/PositionCard.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +29,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="159" />
+    <option name="cachedIndexableFilesCount" value="167" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -48,10 +42,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -65,61 +59,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000000000038" />
-      <entry key="S60" value="1.0000002029487274" />
-      <entry key="M2" value="1.001681302908206" />
-      <entry key="M5" value="1.458360460595025" />
-      <entry key="M10" value="4.9488401359821825" />
-      <entry key="M15" value="10.731944012875587" />
-      <entry key="M30" value="33.08085517157975" />
-      <entry key="H1" value="84.89069942759524" />
-      <entry key="H2" value="195.62089095646937" />
-      <entry key="H4" value="397.3941528400373" />
-      <entry key="D1" value="1604.5490280458241" />
-      <entry key="W1" value="2409.8419952991926" />
+      <entry key="MS100" value="1.005435553135834" />
+      <entry key="MS500" value="1.6087657823672492" />
+      <entry key="S2" value="2.9693211440147094" />
+      <entry key="S5" value="3.9163650232419553" />
+      <entry key="S10" value="5.379493427573672" />
+      <entry key="S30" value="10.914837336034616" />
+      <entry key="S60" value="16.10950083773727" />
+      <entry key="M2" value="22.63984582567106" />
+      <entry key="M5" value="39.259947740877834" />
+      <entry key="M10" value="65.03763927021303" />
+      <entry key="M15" value="85.98749394015094" />
+      <entry key="M30" value="128.75160421576908" />
+      <entry key="H1" value="191.8874641651331" />
+      <entry key="H2" value="312.34427662987036" />
+      <entry key="H4" value="535.560771835459" />
+      <entry key="D1" value="1857.3257211775658" />
+      <entry key="W1" value="2809.5362919921367" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="5.530111718251281E-241" />
-      <entry key="S5" value="1.8603348856042187E-96" />
-      <entry key="S10" value="3.310722969461667E-48" />
-      <entry key="S30" value="5.924239928586186E-16" />
-      <entry key="S60" value="7.210972523461353E-8" />
-      <entry key="M2" value="8.17366595550814E-4" />
-      <entry key="M5" value="0.2451487265990607" />
-      <entry key="M10" value="1.917332896354103" />
-      <entry key="M15" value="4.2538672823368655" />
-      <entry key="M30" value="11.839370124262729" />
-      <entry key="H1" value="26.232167384221533" />
-      <entry key="H2" value="51.98883608096015" />
-      <entry key="H4" value="93.6950154974776" />
-      <entry key="D1" value="304.5781535454675" />
-      <entry key="W1" value="442.5112927294575" />
+      <entry key="MS100" value="8.258700266189069E-29" />
+      <entry key="MS500" value="2.4175882759750847E-6" />
+      <entry key="S2" value="0.039432453962850424" />
+      <entry key="S5" value="0.27915841142231324" />
+      <entry key="S10" value="0.619354192595362" />
+      <entry key="S30" value="1.5287537212162623" />
+      <entry key="S60" value="2.184358026014664" />
+      <entry key="M2" value="3.4747513234322094" />
+      <entry key="M5" value="8.65008912746673" />
+      <entry key="M10" value="18.414260122561423" />
+      <entry key="M15" value="28.411684096208713" />
+      <entry key="M30" value="52.70073556944836" />
+      <entry key="H1" value="83.57626865028563" />
+      <entry key="H2" value="122.9649250266219" />
+      <entry key="H4" value="177.83486201452033" />
+      <entry key="D1" value="424.23659393854825" />
+      <entry key="W1" value="590.9804224268798" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.4537595776585804" />
-      <entry key="MS500" value="0.8538177143912449" />
-      <entry key="S2" value="0.9612609283887613" />
-      <entry key="S5" value="0.9843204683673258" />
-      <entry key="S10" value="0.9921292599088718" />
-      <entry key="S30" value="0.99736950654102" />
-      <entry key="S60" value="0.998684160719094" />
-      <entry key="M2" value="1.001833974221457" />
-      <entry key="M5" value="1.7024919171710957" />
-      <entry key="M10" value="6.862635255249605" />
-      <entry key="M15" value="14.979931216183385" />
-      <entry key="M30" value="44.90960985521447" />
-      <entry key="H1" value="111.10815068153445" />
-      <entry key="H2" value="247.59294422082687" />
-      <entry key="H4" value="491.07285423137864" />
-      <entry key="D1" value="1909.117446262659" />
-      <entry key="W1" value="2852.351229312364" />
+      <entry key="MS100" value="0.17785315581628006" />
+      <entry key="MS500" value="1.1388867440411288" />
+      <entry key="S2" value="2.7062551193459425" />
+      <entry key="S5" value="4.000484884059655" />
+      <entry key="S10" value="5.857147689040435" />
+      <entry key="S30" value="12.3520762011292" />
+      <entry key="S60" value="18.2261378310241" />
+      <entry key="M2" value="26.059341032170583" />
+      <entry key="M5" value="47.85840995225721" />
+      <entry key="M10" value="83.39943985774576" />
+      <entry key="M15" value="114.34687365158418" />
+      <entry key="M30" value="181.4047990676474" />
+      <entry key="H1" value="275.4234283282926" />
+      <entry key="H2" value="435.2762053863656" />
+      <entry key="H4" value="713.3692669651037" />
+      <entry key="D1" value="2281.5498967602152" />
+      <entry key="W1" value="3400.5141406940256" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -152,41 +146,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BlockchaintradingApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/OneDriveWind/OneDrive/SFEFUNIX/blockchaintrading/blockchaintrading/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Intellji\\IntelliJ IDEA 2026.1.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.BlockchaintradingApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/HP/OneDriveWind/OneDrive/SFEFUNIX/blockchaintrading/blockchaintrading/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "D:\\Intellji\\IntelliJ IDEA 2026.1.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\OneDriveWind\OneDrive\SFEFUNIX\blockchaintrading\blockchaintrading\backend" />
@@ -240,7 +239,9 @@
       <workItem from="1785043232449" duration="4887000" />
       <workItem from="1785048857105" duration="1349000" />
       <workItem from="1785128531674" duration="9913000" />
-      <workItem from="1785220623896" duration="4288000" />
+      <workItem from="1785220623896" duration="8865000" />
+      <workItem from="1785304401755" duration="216000" />
+      <workItem from="1785304716219" duration="9557000" />
     </task>
     <task id="LOCAL-00001" summary="Merge two branch">
       <option name="closed" value="true" />
@@ -270,6 +271,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge two branch" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge two branch" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/api/resourcesApi.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
