@@ -4,45 +4,76 @@ import WindyLogo from "../components/common/windy-logo.jsx";
 import OrderBook from "../components/order/OrderBook.jsx";
 import TradeHistory from "../components/trade/TradeHistory.jsx";
 import CandleChart from "../components/market/TradingviewChart.jsx";
-import { CANDLE_DATA_BY_INTERVAL } from "../components/market/mockCandleData.js";
 import PositionCard from "../components/trade/PositionCard.jsx";
+import { useMarketResources } from "../context/MarketResoucesContext.jsx";
+import { getChartByTimeFormatResponse } from "../services/marketService.js";
+import {useAuth} from "../context/AuthContext.jsx";
+import {useUserResources} from "../context/UserResourcesContext.jsx";
 
 const TIME_INTERVALS = [
     { label: "1s", value: "1S" },
-    { label: "15mins", value: "15" },
-    { label: "1h", value: "60" },
-    { label: "4h", value: "240" },
-    { label: "1day", value: "D" },
-    { label: "1week", value: "W" },
+    { label: "15mins", value: "15M" },
+    { label: "1h", value: "1H" },
+    { label: "4h", value: "4H" },
+    { label: "1day", value: "1D" },
+    { label: "1week", value: "1W" },
 ];
 
 const positions = [
-    {
-        type: "Sell order",
-        price: "67.037,37",
-        marketPrice: "67.037,37",
-        amount: "1 W",
-        roi: "+5%",
-    },
-    {
-        type: "Buy order",
-        price: "67.037,37",
-        marketPrice: "67.037,37",
-        amount: "1 W",
-        roi: "-5%",
-    },
-    {
-        type: "Buy order",
-        price: "67.037,37",
-        marketPrice: "67.037,37",
-        amount: "1 W",
-        roi: "-10%",
-    },
+    // {
+    //     type: "Sell order",
+    //     price: "67.037,37",
+    //     marketPrice: "67.037,37",
+    //     amount: "1 W",
+    //     roi: "+5%",
+    // },
+    // {
+    //     type: "Buy order",
+    //     price: "67.037,37",
+    //     marketPrice: "67.037,37",
+    //     amount: "1 W",
+    //     roi: "-5%",
+    // },
+    // {
+    //     type: "Buy order",
+    //     price: "67.037,37",
+    //     marketPrice: "67.037,37",
+    //     amount: "1 W",
+    //     roi: "-10%",
+    // },
 ];
 
 export default function MarketPage() {
-    const [interval, setInterval] = useState("60");
     const [orderTab, setOrderTab] = useState("Limit"); // "Limit" | "Market"
+
+    // Extract context resources safely
+    const {
+        maxPrice24H = "0.00",
+        minPrice24H = "0.00",
+        volume24H = "0.00",
+        time = "1H",
+        setTime,
+        marketChartData = [],
+        marketPrice = "0.00"
+    } = useMarketResources();
+
+    const {token} = useAuth();
+    const {wallet} = useUserResources();
+
+    console.log(time);
+
+
+    // Safely format chart data
+    const formattedMarketData = getChartByTimeFormatResponse(marketChartData ?? []);
+
+    // Safe interval switch handler
+    const handleIntervalChange = (newInterval) => {
+        if (typeof setTime === "function") {
+            setTime(newInterval);
+        } else {
+            console.warn("setTime function is not available in MarketResourcesContext");
+        }
+    };
 
     return (
         <div className="min-h-screen w-full bg-[#EAE3D5] px-8 py-6">
@@ -65,17 +96,17 @@ export default function MarketPage() {
                         <p className="text-xs font-semibold text-gray-900">
                             Max price 24h
                         </p>
-                        <p className="text-sm text-gray-800">70,000 $</p>
+                        <p className="text-sm text-gray-800">{maxPrice24H} $</p>
                     </div>
                     <div>
                         <p className="text-xs font-semibold text-gray-900">
                             Min price 24h
                         </p>
-                        <p className="text-sm text-gray-800">60,000 $</p>
+                        <p className="text-sm text-gray-800">{minPrice24H} $</p>
                     </div>
                     <div>
                         <p className="text-xs font-semibold text-gray-900">Volume 24h</p>
-                        <p className="text-sm text-gray-800">2,322,33.22</p>
+                        <p className="text-sm text-gray-800">{volume24H}</p>
                     </div>
                 </div>
 
@@ -100,9 +131,9 @@ export default function MarketPage() {
                         {TIME_INTERVALS.map((t) => (
                             <button
                                 key={t.value}
-                                onClick={() => setInterval(t.value)}
+                                onClick={() => handleIntervalChange(t.value)}
                                 className={`hover:text-gray-900 transition-colors ${
-                                    interval === t.value
+                                    time === t.value
                                         ? "text-gray-900 font-semibold"
                                         : "text-gray-600"
                                 }`}
@@ -112,9 +143,9 @@ export default function MarketPage() {
                         ))}
                     </div>
 
-                    {/* Candlestick chart (TradingView widget) */}
+                    {/* Candlestick chart */}
                     <CandleChart
-                        data={CANDLE_DATA_BY_INTERVAL[interval]}
+                        data={formattedMarketData}
                         height={260}
                     />
 
@@ -147,14 +178,14 @@ export default function MarketPage() {
                             <div className="flex items-center gap-1.5">
                                 <Wallet size={15} strokeWidth={2} />
                                 <span>
-                  Amount: <span className="font-medium">1.232 W</span>
-                </span>
+                                    Amount: <span className="font-medium"> {token ? wallet.available_balance : "0"}</span>
+                                </span>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <Lock size={15} strokeWidth={2} />
                                 <span>
-                  Locked: <span className="font-medium">500 W</span>
-                </span>
+                                    Locked: <span className="font-medium"> {token ? wallet.locked_balance : "0"}</span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -164,22 +195,26 @@ export default function MarketPage() {
                         <div className="flex items-center justify-between px-4 py-2.5 rounded-md border border-gray-700/50 bg-transparent">
                             <span className="text-sm text-gray-500">Price</span>
                             <span className="text-sm font-medium text-gray-900">
-                67.037,37
-              </span>
+                                {marketPrice}
+                            </span>
                         </div>
                         <div className="flex items-center justify-between px-4 py-2.5 rounded-md border border-gray-700/50 bg-transparent">
                             <span className="text-sm text-gray-500">Amount</span>
-                            <span className="text-sm font-medium text-gray-900">BTC</span>
+                            <span className="text-sm font-medium text-gray-900">W</span>
                         </div>
                     </div>
 
                     {/* Long / Short buttons */}
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                        <button className="py-2.5 rounded-md bg-[#8FBF6B] hover:bg-[#7FAE5B] text-white text-sm font-semibold tracking-wide transition-colors">
-                            LONG
+                        <button className="py-2.5 rounded-md bg-[#8FBF6B] hover:bg-[#7FAE5B] text-white text-sm font-semibold tracking-wide transition-colors"
+                            {...(!token && { disabled: true })}
+                        >
+                            {token ? "LONG" : "Login to Trade"}
                         </button>
-                        <button className="py-2.5 rounded-md bg-[#E06A5C] hover:bg-[#D0594B] text-white text-sm font-semibold tracking-wide transition-colors">
-                            SHORT
+                        <button className="py-2.5 rounded-md bg-[#E06A5C] hover:bg-[#D0594B] text-white text-sm font-semibold tracking-wide transition-colors"
+                            {...(!token && { disabled: true })}
+                        >
+                            {token ? "SHORT" : "Login to Trade"}
                         </button>
                     </div>
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,17 +27,17 @@ public class MarketDataService {
     }
 
     public BigDecimal getMaxPrice24h(){
-        LocalDateTime twentyFourHoursAgo = LocalDateTime.now().minusHours(24);
+        LocalDateTime twentyFourHoursAgo = LocalDateTime.now(ZoneOffset.UTC).minusHours(24);
         return tradeRepository.findMaxPriceInWindow(twentyFourHoursAgo).orElse(BigDecimal.ZERO);
     }
 
     public BigDecimal getMinPrice24h(){
-        LocalDateTime twentyFourHoursAgo = LocalDateTime.now().minusHours(24);
+        LocalDateTime twentyFourHoursAgo = LocalDateTime.now(ZoneOffset.UTC).minusHours(24);
         return tradeRepository.findMinPriceInWindow(twentyFourHoursAgo).orElse(BigDecimal.ZERO);
     }
 
     public long getVolume24h(){
-        LocalDateTime twentyFourHoursAgo = LocalDateTime.now().minusHours(24);
+        LocalDateTime twentyFourHoursAgo = LocalDateTime.now(ZoneOffset.UTC).minusHours(24);
         return tradeRepository.countByCreatedAtGreaterThanEqual(twentyFourHoursAgo);
     }
 

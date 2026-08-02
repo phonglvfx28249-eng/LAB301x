@@ -69,7 +69,7 @@ public class Order {
     }
 
     public enum OrderStatus {
-        PENDING, OPEN, PARTIALLY_FILLED, FILLED, CANCELLED, REJECTED
+        PENDING, OPEN, PARTIAL, FILLED, CANCELLED, REJECTED
     }
 
     public Order() {

@@ -28,4 +28,6 @@ public interface TradeService {
     BigDecimal calculateTotalCoinsOwnedByUserId(Long userId);
 
     UserTradeResponse getTradeByIdAndUserId(Long tradeId, Long userId);
+
+    BigDecimal findCurrentMarketPrice();
 }

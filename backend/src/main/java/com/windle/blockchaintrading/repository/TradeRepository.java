@@ -63,17 +63,33 @@ public interface TradeRepository extends JpaRepository<Trade, Long> {
 
     @Query(value = """
         SELECT 
-            FROM_UNIXTIME(UNIX_TIMESTAMP(created_at) - (UNIX_TIMESTAMP(created_at) % :seconds)) AS time,
-            CAST(SUBSTRING_INDEX(GROUP_CONCAT(price ORDER BY created_at ASC, id ASC), ',', 1) AS DECIMAL(18,8)) AS openPrice,
-            MAX(price) AS highPrice,
-            MIN(price) AS lowPrice,
-            CAST(SUBSTRING_INDEX(GROUP_CONCAT(price ORDER BY created_at DESC, id DESC), ',', 1) AS DECIMAL(18,8)) AS closePrice
-        FROM trades
-        GROUP BY time
-        ORDER BY time ASC
+            bucket.time_bucket AS time,
+            MIN(bucket.open_price) AS openPrice,
+            MAX(bucket.trade_price) AS highPrice,
+            MIN(bucket.trade_price) AS lowPrice,
+            MAX(bucket.close_price) AS closePrice
+        FROM (
+            SELECT 
+                trade_price,
+                FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(created_at) / :seconds) * :seconds) AS time_bucket,
+                FIRST_VALUE(trade_price) OVER (
+                    PARTITION BY FLOOR(UNIX_TIMESTAMP(created_at) / :seconds) 
+                    ORDER BY created_at ASC, id ASC
+                ) AS open_price,
+                FIRST_VALUE(trade_price) OVER (
+                    PARTITION BY FLOOR(UNIX_TIMESTAMP(created_at) / :seconds) 
+                    ORDER BY created_at DESC, id DESC
+                ) AS close_price
+            FROM trades
+        ) AS bucket
+        GROUP BY bucket.time_bucket
+        ORDER BY bucket.time_bucket ASC
         """, nativeQuery = true)
     List<CandleStickResponse> findCandlesticksByInterval(
             @Param("seconds") int seconds
     );
+
+    @Query("SELECT t.tradePrice FROM Trade t ORDER BY t.id DESC LIMIT 1")
+    Optional<BigDecimal> findCurrentMarketPrice();
 
 }

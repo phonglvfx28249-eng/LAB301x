@@ -81,7 +81,7 @@ public class OrderServiceImpl implements OrderService {
             if (remainingQuantity.compareTo(BigDecimal.ZERO) <= 0) {
                 order.setStatus(Order.OrderStatus.FILLED);
             } else if (remainingQuantity.compareTo(order.getQuantity()) < 0) {
-                order.setStatus(Order.OrderStatus.PARTIALLY_FILLED);
+                order.setStatus(Order.OrderStatus.PARTIAL);
             }
 
             orderRepository.save(order);

@@ -1,14 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import { createChart, ColorType, CandlestickSeries } from "lightweight-charts";
 
-// custom coin
 export default function CandleChart({
                                         data = MOCK_W_USD_DATA,
                                         height = 300,
                                     }) {
     const containerRef = useRef(null);
     const chartRef = useRef(null);
+    const seriesRef = useRef(null);
 
+    // 1. INITIALIZE CHART (Runs ONLY once on mount or when height changes)
     useEffect(() => {
         if (!containerRef.current) return;
 
@@ -16,7 +17,6 @@ export default function CandleChart({
             autoSize: true,
             height,
             layout: {
-                // True transparency — this is the actual fix, not a color match.
                 background: { type: ColorType.Solid, color: "transparent" },
                 textColor: "#333333",
             },
@@ -26,6 +26,8 @@ export default function CandleChart({
             },
             timeScale: {
                 borderColor: "rgba(0, 0, 0, 0.15)",
+                timeVisible: true,     // Shows hh:mm:ss for short intervals
+                secondsVisible: false,  // Hides seconds to keep X-axis clean
             },
             rightPriceScale: {
                 borderColor: "rgba(0, 0, 0, 0.15)",
@@ -33,9 +35,16 @@ export default function CandleChart({
             crosshair: {
                 mode: 0,
             },
+            localization: {
+                timeFormatter: (timestamp) => {
+                    // Handle both UNIX timestamp (seconds) and Date string formats
+                    if (typeof timestamp === "number") {
+                        return new Date(timestamp * 1000).toUTCString();
+                    }
+                    return timestamp;
+                },
+            },
         });
-
-        chartRef.current = chart;
 
         const candleSeries = chart.addSeries(CandlestickSeries, {
             upColor: "#22a06b",
@@ -46,14 +55,24 @@ export default function CandleChart({
             wickDownColor: "#e0574a",
         });
 
-        candleSeries.setData(data);
-        chart.timeScale().fitContent();
+        chartRef.current = chart;
+        seriesRef.current = candleSeries;
 
         return () => {
             chart.remove();
             chartRef.current = null;
+            seriesRef.current = null;
         };
-    }, [data, height]);
+    }, [height]); // 👈 Notice 'data' is removed from dependencies!
+
+    // 2. UPDATE DATA IN-PLACE (Runs every time new data arrives WITHOUT restarting chart)
+    useEffect(() => {
+        if (!seriesRef.current || !data || data.length === 0) return;
+
+        // Efficiently update the series on the existing chart
+        seriesRef.current.setData(data);
+
+    }, [data]);
 
     return (
         <div
@@ -64,7 +83,7 @@ export default function CandleChart({
     );
 }
 
-// Placeholder manual data for W/USD — replace with your real backend data.
+// Placeholder manual data for W/USD
 export const MOCK_W_USD_DATA = [
     { time: "2026-06-25", open: 65.2, high: 66.8, low: 64.5, close: 66.1 },
     { time: "2026-06-26", open: 66.1, high: 67.9, low: 65.8, close: 67.4 },

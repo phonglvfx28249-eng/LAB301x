@@ -10,6 +10,7 @@ import AccountDashboard from "../pages/AccountDashboard.jsx";
 import MarketDashboard from "../pages/MarketDashboard.jsx";
 import HistoryDashboard from "../pages/HistoryDashboard.jsx";
 import UserResourcesProvider from "../context/UserResourcesContext.jsx";
+import MarketRoute from "./MarketRoute.jsx";
 
 
 
@@ -43,8 +44,9 @@ export default function AppRoutes({isAuthenticated}){
                 <Route path="dashboard" element={<div>Admin Dashboard</div>}/>
             </Route>
 
-
-            <Route path="/market" element={<MarketDashboard/>}/>
+            <Route element={<MarketRoute/>}>
+                <Route path="/market" element={<MarketDashboard/>}/>
+            </Route>
 
         </Routes>
     )

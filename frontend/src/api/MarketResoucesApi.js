@@ -35,3 +35,8 @@ export const getVolume24H = async () => {
     const res = await  springApi.get("/market/volume24h");
     return res.data;
 }
+
+export const getMarketPrice = async () => {
+    const res = await  springApi.get("/market/getmarketprice");
+    return res.data;
+}

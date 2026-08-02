@@ -150,4 +150,9 @@ public class TradeServiceImpl implements TradeService {
                 trade.getCreatedAt()
         );
     }
+
+    @Override
+    public BigDecimal findCurrentMarketPrice() {
+        return tradeRepository.findCurrentMarketPrice().orElse(BigDecimal.ZERO);
+    }
 }
