@@ -42,11 +42,29 @@ public class MarketDataService {
     }
 
     public List<Order> getTop10BuyOrders() {
-        return orderRepository.findTop10BySideOrderByCreatedAt(Order.Side.BUY);
+        List<Order.OrderStatus> targetStatuses = List.of(
+                Order.OrderStatus.PENDING,
+                Order.OrderStatus.OPEN,
+                Order.OrderStatus.PARTIAL
+        );
+
+        return orderRepository.findTop10BySideAndStatusInOrderByCreatedAtDesc(
+                Order.Side.BUY,
+                targetStatuses
+        );
     }
 
     public List<Order> getTop10SellOrders() {
-        return orderRepository.findTop10BySideOrderByCreatedAt(Order.Side.SELL);
+        List<Order.OrderStatus> targetStatuses = List.of(
+                Order.OrderStatus.PENDING,
+                Order.OrderStatus.OPEN,
+                Order.OrderStatus.PARTIAL
+        );
+
+        return orderRepository.findTop10BySideAndStatusInOrderByCreatedAtDesc(
+                Order.Side.SELL,
+                targetStatuses
+        );
     }
 
     public List<Order> getTop5Trades() {

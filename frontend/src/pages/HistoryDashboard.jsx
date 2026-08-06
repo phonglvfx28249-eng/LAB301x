@@ -2,51 +2,8 @@ import React, { useState } from "react";
 import { Wallet, Lock, ChevronDown, Filter, ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import WindyLogo from "../components/common/windy-logo.jsx";
+import { useUserResources } from "../context/UserResourcesContext.jsx";
 
-const trades = [
-    {
-        id: "wid-1",
-        symbol: "W",
-        coin: "WID",
-        status: "Partial",
-        statusColor: "bg-yellow-500",
-        position: "Long",
-        positionColor: "text-green-600",
-        amount: "1,2000,3232",
-        time: "2026-06-03 20:00:00",
-        price: "1.001232",
-        roi: "+5%",
-        earned: "+100 $USD",
-    },
-    {
-        id: "wid-2",
-        symbol: "W",
-        coin: "WID",
-        status: "Filled",
-        statusColor: "bg-green-500",
-        position: "Long",
-        positionColor: "text-green-600",
-        amount: "1,2000,3232",
-        time: "2026-06-03 20:00:00",
-        price: "1.001232",
-        roi: "+5%",
-        earned: "+100 $USD",
-    },
-    {
-        id: "wid-3",
-        symbol: "W",
-        coin: "WID",
-        status: "Open",
-        statusColor: "bg-gray-300",
-        position: "Short",
-        positionColor: "text-red-500",
-        amount: "1,2000,3232",
-        time: "2026-06-03 20:00:00",
-        price: "1.001232",
-        roi: "+5%",
-        earned: "+100 $USD",
-    },
-];
 
 function Dropdown({ label, value }) {
     return (
@@ -127,10 +84,12 @@ function OrderDetail({ trade, onClose }) {
 }
 
 export default function HistoryDashboard() {
-    const [wallet, setWallet] = useState("Spot");
+    const [wallet2, setWallet] = useState("Spot");
     const [currency, setCurrency] = useState("BNB");
     const [status, setStatus] = useState("Filled");
     const [selectedTrade, setSelectedTrade] = useState(null);
+    const { tradeHistory, wallet} = useUserResources();
+    const trades = tradeHistory;
 
     const hasTrades = trades.length > 0;
 
@@ -161,20 +120,20 @@ export default function HistoryDashboard() {
                             <div className="flex items-center gap-2">
                                 <Wallet size={16} strokeWidth={2} />
                                 <span>
-                  Amount: <span className="font-medium">1000$ (USD)</span>
+                  Amount: <span className="font-medium">{wallet?.available_balance}$ (USD)</span>
                 </span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Lock size={16} strokeWidth={2} />
                                 <span>
-                  Locked: <span className="font-medium">500$ (USD)</span>
+                  Locked: <span className="font-medium">{wallet?.locked_balance}$ (USD)</span>
                 </span>
                             </div>
                         </div>
 
                         {/* Filters */}
                         <div className="flex items-center gap-4 mb-2 ">
-                            <Dropdown label="Wallet" value={wallet} />
+                            <Dropdown label="Wallet" value={wallet2} />
                             <Dropdown label="Currency" value={currency} />
                             <Dropdown label="Status" value={status} />
                             <button className="p-2  ml-2">

@@ -153,6 +153,6 @@ public class TradeServiceImpl implements TradeService {
 
     @Override
     public BigDecimal findCurrentMarketPrice() {
-        return tradeRepository.findCurrentMarketPrice().orElse(BigDecimal.ZERO);
+        return tradeRepository.findCurrentMarketPrice().orElse(BigDecimal.valueOf(1.0));
     }
 }

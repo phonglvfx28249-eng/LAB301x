@@ -1,7 +1,10 @@
 package com.windle.blockchaintrading.service.impl;
 
+import com.windle.blockchaintrading.dto.response.WalletResponse;
+import com.windle.blockchaintrading.entity.Order;
 import com.windle.blockchaintrading.entity.User;
 import com.windle.blockchaintrading.entity.Wallet;
+import com.windle.blockchaintrading.repository.OrderRepository;
 import com.windle.blockchaintrading.repository.UserRepository;
 import com.windle.blockchaintrading.repository.WalletRepository;
 import com.windle.blockchaintrading.service.WalletService;
@@ -11,17 +14,20 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class WalletServiceImpl implements WalletService {
 
     private final WalletRepository walletRepository;
     private final UserRepository userRepository;
+    private final OrderRepository orderRepository;
 
     @Autowired
-    public WalletServiceImpl(WalletRepository walletRepository, UserRepository userRepository) {
+    public WalletServiceImpl(WalletRepository walletRepository, UserRepository userRepository, OrderRepository orderRepository) {
         this.walletRepository = walletRepository;
         this.userRepository = userRepository;
+        this.orderRepository = orderRepository;
     }
 
     @Override
@@ -106,6 +112,7 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
+    @Transactional
     public void unlockFunds(Long walletId, BigDecimal amount) {
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Amount to unlock must be greater than zero");
@@ -126,5 +133,27 @@ public class WalletServiceImpl implements WalletService {
     @Override
     public void deleteWallet(Long id) {
         walletRepository.deleteById(id);
+    }
+
+    @Override
+    public BigDecimal getAvailableBalance(Long userId) {
+        return null;
+    }
+
+    @Override
+    public WalletResponse getUserWalletResponse(Long userId) {
+        Wallet wallet = walletRepository.findByUserId(userId)
+                .orElseThrow(() -> new RuntimeException("Wallet not found for userId: " + userId));
+
+        // Get user's active FILLED orders to sum live unrealized PnL
+        List<Order> activeOrders = orderRepository.findByUserIdAndStatus(userId, Order.OrderStatus.FILLED);
+
+        BigDecimal totalUnrealizedPnl = activeOrders.stream()
+                .map(Order::getUnrealizedPnl)
+                .filter(Objects::nonNull)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        // Returns WalletResponse where available_balance includes live PnL dynamically
+        return WalletResponse.fromEntity(wallet, totalUnrealizedPnl);
     }
 }

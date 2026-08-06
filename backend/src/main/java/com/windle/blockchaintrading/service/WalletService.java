@@ -1,5 +1,6 @@
 package com.windle.blockchaintrading.service;
 
+import com.windle.blockchaintrading.dto.response.WalletResponse;
 import com.windle.blockchaintrading.entity.Wallet;
 
 import java.math.BigDecimal;
@@ -26,4 +27,8 @@ public interface WalletService {
     void unlockFunds(Long walletId, BigDecimal amount);
 
     void deleteWallet(Long id);
+
+    BigDecimal getAvailableBalance(Long userId);
+
+    WalletResponse getUserWalletResponse(Long userId);
 }

@@ -28,3 +28,7 @@ export const getTotalCoinsOwned = async () =>{
     return res.data;
 }
 
+export  const getTradeHistory = async () =>{
+    const res = await springApi.get("/history/trades");
+    return res.data;
+}

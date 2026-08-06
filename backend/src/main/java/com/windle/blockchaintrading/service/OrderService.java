@@ -24,4 +24,10 @@ public interface OrderService {
     void cancelOrder(Long id);
 
     void deleteOrder(Long id);
+
+    boolean checkOrderOwnByUser(Long orderId, Long userId);
+
+    List<Order> getOrdersByUserIdAndOrderStatus(Long userId, Order.OrderStatus orderStatus);
+
+    void closeOrder(Long id);
 }

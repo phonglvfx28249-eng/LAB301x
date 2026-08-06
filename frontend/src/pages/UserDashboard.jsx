@@ -3,10 +3,12 @@ import TopBar from "../components/common/TopBar.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 import WindyLogo from "../components/common/windy-logo.jsx";
 import { useUserResources } from "../context/UserResourcesContext.jsx";
+import {useMarketResources} from "../context/MarketResoucesContext.jsx";
 
 export default function UserDashboard() {
     const { user } = useAuth();
-    const { wallet, totalCoinsOwned, loading } = useUserResources();
+    const { wallet, loading } = useUserResources();
+    const {marketPrice} = useMarketResources();
 
     // 1. Loading Guard: Wait until initial data is fetched
     if (loading || !wallet) {
@@ -20,20 +22,20 @@ export default function UserDashboard() {
     // 2. Safely resolve wallet balance (handles camelCase and fallback)
     const availableBalance = wallet.availableBalance ?? wallet.available_balance ?? 0;
 
-    // Data for the table
-    const marketPriceNum = 1.00322;
-    const quantityNum = parseFloat(totalCoinsOwned) || 0;
-    const totalAmount = (marketPriceNum * quantityNum).toFixed(2);
+// Data for the table
+        const marketPriceNum = marketPrice;
+        const quantityNum = parseFloat(wallet.locked_balance) || 0;
+        const totalAmount = (marketPriceNum * quantityNum).toFixed(2);
 
-    const coins = [
-        {
-            id: "wid",
-            symbol: "W",
-            name: "WID",
-            marketPrice: marketPriceNum.toFixed(5),
-            quantity: quantityNum,
-            amount: totalAmount,
-        },
+        const coins = [
+                    {
+                id: "wid",
+                symbol: "W",
+                name: "WID",
+                marketPrice: marketPriceNum.toFixed(5),
+                quantity: quantityNum,
+                amount: totalAmount,
+            },
     ];
 
     return (

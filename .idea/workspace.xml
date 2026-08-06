@@ -9,28 +9,32 @@
   <component name="ChangeListManager">
     <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/MarketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/MarketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/response/CandleStickResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/response/CandleStickResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/BlockchaintradingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/BlockchaintradingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/UserResourcesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/UserResourcesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/response/WalletResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/response/WalletResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/ChartDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/ChartDataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/MarketDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/MarketDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/TradeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/TradeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/TradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/TradeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/OMSLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/OMSLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/matching/MatchingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/matching/MatchingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/WalletRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/WalletService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/TradeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/TradeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/WalletServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/WalletServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/mock-data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/mock-data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/MarketResoucesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/MarketResoucesApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/market/MockCandleData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/market/TradingviewChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/market/TradingviewChart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/resourcesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/resourcesApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/order/OrderBook.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/order/OrderBook.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/trade/TradeHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/trade/TradeHistory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/context/MarketResoucesContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/MarketResoucesContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/trade/PositionCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/trade/PositionCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/UserResourcesContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/UserResourcesContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AccountDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AccountDashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/HistoryDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/HistoryDashboard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/MarketDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MarketDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/routes/AppRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/AppRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/MarketService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/marketService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserDashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/routes/ProtectedUserRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/ProtectedUserRoute.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/marketService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/marketService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="176" />
+    <option name="cachedIndexableFilesCount" value="186" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -76,61 +80,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.001616118821602" />
-      <entry key="MS500" value="2.1256124497437203" />
-      <entry key="S2" value="5.3923874011834085" />
-      <entry key="S5" value="6.85847871874328" />
-      <entry key="S10" value="7.700033558594998" />
-      <entry key="S30" value="8.91032607693111" />
-      <entry key="S60" value="10.243329356752518" />
-      <entry key="M2" value="14.570932994792441" />
-      <entry key="M5" value="24.538648733168966" />
-      <entry key="M10" value="31.844753011793426" />
-      <entry key="M15" value="36.24555699541965" />
-      <entry key="M30" value="49.32419842258919" />
-      <entry key="H1" value="85.40671163053169" />
-      <entry key="H2" value="187.4134262151038" />
-      <entry key="H4" value="424.754528623705" />
-      <entry key="D1" value="1963.7592328369474" />
-      <entry key="W1" value="3210.9618338287237" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.000296434297948" />
+      <entry key="S2" value="1.131236615313271" />
+      <entry key="S5" value="1.4653260990264567" />
+      <entry key="S10" value="1.9125742140946147" />
+      <entry key="S30" value="3.789381333118649" />
+      <entry key="S60" value="5.83780480882277" />
+      <entry key="M2" value="7.801546610636665" />
+      <entry key="M5" value="9.52622505453144" />
+      <entry key="M10" value="10.225805769677825" />
+      <entry key="M15" value="10.476442122369981" />
+      <entry key="M30" value="11.070869513742595" />
+      <entry key="H1" value="17.83378949852174" />
+      <entry key="H2" value="57.56712140243081" />
+      <entry key="H4" value="205.15127178172685" />
+      <entry key="D1" value="1901.9609979999982" />
+      <entry key="W1" value="3826.102539493794" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="4.981094058979481E-133" />
-      <entry key="S2" value="8.948556910015713E-34" />
-      <entry key="S5" value="7.912030598354994E-14" />
-      <entry key="S10" value="4.1329548447860316E-7" />
-      <entry key="S30" value="0.016362181755472303" />
-      <entry key="S60" value="0.2614883397732342" />
-      <entry key="M2" value="1.2172214563974386" />
-      <entry key="M5" value="3.9471042454350322" />
-      <entry key="M10" value="6.453924703275872" />
-      <entry key="M15" value="7.921070219995666" />
-      <entry key="M30" value="11.68808935065189" />
-      <entry key="H1" value="21.399973437411195" />
-      <entry key="H2" value="50.47121955738674" />
-      <entry key="H4" value="117.44115420946757" />
-      <entry key="D1" value="450.93838381596123" />
-      <entry key="W1" value="686.109429523515" />
+      <entry key="MS100" value="1.8102333556285714E-81" />
+      <entry key="MS500" value="7.10471911216263E-17" />
+      <entry key="S2" value="9.180933901257424E-5" />
+      <entry key="S5" value="0.024366226518416242" />
+      <entry key="S10" value="0.17258526896514165" />
+      <entry key="S30" value="1.1583688817820057" />
+      <entry key="S60" value="2.2999121482728455" />
+      <entry key="M2" value="3.3559486825213223" />
+      <entry key="M5" value="4.252916328570932" />
+      <entry key="M10" value="4.609607603037116" />
+      <entry key="M15" value="4.735935913814406" />
+      <entry key="M30" value="4.910930672912712" />
+      <entry key="H1" value="6.494680374143562" />
+      <entry key="H2" value="20.561336848054005" />
+      <entry key="H4" value="79.48363513767998" />
+      <entry key="D1" value="568.8679964340348" />
+      <entry key="W1" value="1002.1446251903739" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.23158583313945033" />
-      <entry key="MS500" value="1.853073331541097" />
-      <entry key="S2" value="5.303094345747246" />
-      <entry key="S5" value="6.818968057318991" />
-      <entry key="S10" value="7.677730142687493" />
-      <entry key="S30" value="8.916530075713624" />
-      <entry key="S60" value="10.493801476512234" />
-      <entry key="M2" value="15.771042976545234" />
-      <entry key="M5" value="28.464885837822706" />
-      <entry key="M10" value="38.28129270255505" />
-      <entry key="M15" value="44.15150066606701" />
-      <entry key="M30" value="60.99835276082385" />
-      <entry key="H1" value="106.79102066902111" />
-      <entry key="H2" value="237.86589592734612" />
-      <entry key="H4" value="542.1748384294286" />
-      <entry key="D1" value="2414.6839893708393" />
-      <entry key="W1" value="3897.068229894598" />
+      <entry key="MS100" value="1.2683454315431992E-17" />
+      <entry key="MS500" value="4.858646629229836E-4" />
+      <entry key="S2" value="0.23394715837242516" />
+      <entry key="S5" value="0.878168347677516" />
+      <entry key="S10" value="1.6563818928599163" />
+      <entry key="S30" value="4.632175480499347" />
+      <entry key="S60" value="7.890462740199194" />
+      <entry key="M2" value="10.993611986632995" />
+      <entry key="M5" value="13.700047389135504" />
+      <entry key="M10" value="14.793183572855588" />
+      <entry key="M15" value="15.183591931203846" />
+      <entry key="M30" value="15.966990902061175" />
+      <entry key="H1" value="24.319872345656602" />
+      <entry key="H2" value="78.11987684302981" />
+      <entry key="H4" value="284.62161022030375" />
+      <entry key="D1" value="2470.8129026440124" />
+      <entry key="W1" value="4828.242973159429" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -262,7 +266,14 @@
       <workItem from="1785393562403" duration="3059000" />
       <workItem from="1785472958363" duration="14333000" />
       <workItem from="1785571314935" duration="1605000" />
-      <workItem from="1785653730197" duration="5568000" />
+      <workItem from="1785653730197" duration="7204000" />
+      <workItem from="1785739861703" duration="7882000" />
+      <workItem from="1785761677625" duration="1723000" />
+      <workItem from="1785821611284" duration="12731000" />
+      <workItem from="1785842880425" duration="4250000" />
+      <workItem from="1785909247260" duration="12334000" />
+      <workItem from="1785996727899" duration="9197000" />
+      <workItem from="1786017839086" duration="694000" />
     </task>
     <task id="LOCAL-00001" summary="Merge two branch">
       <option name="closed" value="true" />
@@ -278,6 +289,19 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:react" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:tailwindcss" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:vite" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -292,16 +316,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge two branch" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge two branch" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/frontend/src/api/resourcesApi.js</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

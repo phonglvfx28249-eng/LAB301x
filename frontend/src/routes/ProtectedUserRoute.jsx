@@ -1,6 +1,7 @@
 import {Navigate, Outlet} from "react-router-dom";
 import {useAuth} from "../context/AuthContext.jsx";
 import UserResourcesProvider from "../context/UserResourcesContext.jsx";
+import MarketResourcesProvider from "../context/MarketResoucesContext.jsx";
 
 export default function ProtectedUserRoute({ children }) {
     const { user } = useAuth();
@@ -9,7 +10,9 @@ export default function ProtectedUserRoute({ children }) {
 
             return (
                 <UserResourcesProvider>
-                    <Outlet />
+                    <MarketResourcesProvider>
+                        <Outlet />
+                    </MarketResourcesProvider>
                 </UserResourcesProvider>
             );
         } else {

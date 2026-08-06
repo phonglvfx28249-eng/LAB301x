@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,6 @@ public interface WalletRepository extends JpaRepository<Wallet, Long> {
 
     List<Wallet> findByUser(User user);
 
-    // Convenience finder for the common case of "one wallet per user"
 
     Optional<Wallet> findByUserId(Long userId);
 
@@ -30,4 +30,8 @@ public interface WalletRepository extends JpaRepository<Wallet, Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT w FROM Wallet w WHERE w.user.id = :userId")
     Optional<Wallet> findByUserIdWithLock(@Param("userId") Long userId);
+
+    @Query("SELECT w.availableBalance FROM Wallet w WHERE w.user.id = :userId")
+    Optional<BigDecimal> findAvailableBalanceByUserId(@Param("userId") Long userId);
+
 }

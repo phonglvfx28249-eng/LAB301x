@@ -40,3 +40,9 @@ export const getMarketPrice = async () => {
     const res = await  springApi.get("/market/getmarketprice");
     return res.data;
 }
+
+export const getPosition = async () => {
+    const res = await  springApi.get("/order/get_order");
+    return res.data;
+}
+

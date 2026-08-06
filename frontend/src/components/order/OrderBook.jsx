@@ -19,7 +19,7 @@ function OrderBookTable({ rows = [], priceColor }) {
                     <td className={`py-0.5 font-medium ${priceColor}`}>
                         {row.price}
                     </td>
-                    <td className="py-0.5">{row.quantity}</td>
+                    <td className="py-0.5">{row.remaining_quantity}</td>
                     <td className="py-0.5">{row.total}</td>
                 </tr>
             ))}

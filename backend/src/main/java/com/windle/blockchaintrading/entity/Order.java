@@ -40,7 +40,7 @@ public class Order {
     private BigDecimal remainingQuantity;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
+    @Column(name = "status", length = 30)
     private OrderStatus status = OrderStatus.PENDING;
 
     @Column(name = "created_at", insertable = false, updatable = false)
@@ -48,6 +48,12 @@ public class Order {
 
     @Column(name = "updated_at", insertable = false, updatable = false)
     private LocalDateTime updatedAt;
+
+    @Column(name = "unrealized_pnl", precision = 18, scale = 8)
+    private BigDecimal unrealizedPnl = BigDecimal.ZERO;
+
+    @Column(name = "realized_pnl", precision = 18, scale = 8)
+    private BigDecimal realizedPnl = BigDecimal.ZERO;
 
     @OneToMany(mappedBy = "order")
     private List<WalletTransaction> walletTransactions = new ArrayList<>();
@@ -59,6 +65,22 @@ public class Order {
     // This order acting as the sell side of a trade
     @OneToMany(mappedBy = "sellOrder")
     private List<Trade> sellTrades = new ArrayList<>();
+
+    public BigDecimal getUnrealizedPnl() {
+        return unrealizedPnl;
+    }
+
+    public void setUnrealizedPnl(BigDecimal unrealizedPnl) {
+        this.unrealizedPnl = unrealizedPnl;
+    }
+
+    public BigDecimal getRealizedPnl() {
+        return realizedPnl;
+    }
+
+    public void setRealizedPnl(BigDecimal realizedPnl) {
+        this.realizedPnl = realizedPnl;
+    }
 
     public enum Side {
         BUY, SELL

@@ -1,10 +1,17 @@
 package com.windle.blockchaintrading.service.impl;
 
+import com.windle.blockchaintrading.dto.response.WalletResponse;
 import com.windle.blockchaintrading.entity.Order;
 import com.windle.blockchaintrading.entity.User;
+import com.windle.blockchaintrading.entity.Wallet;
+import com.windle.blockchaintrading.market.OMSLayer;
 import com.windle.blockchaintrading.repository.OrderRepository;
+import com.windle.blockchaintrading.repository.TradeRepository;
 import com.windle.blockchaintrading.repository.UserRepository;
+import com.windle.blockchaintrading.repository.WalletRepository;
 import com.windle.blockchaintrading.service.OrderService;
+import com.windle.blockchaintrading.service.WalletService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +23,23 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
+    private final OMSLayer omsLayer;
+    private final WalletService walletService;
+    private final TradeRepository tradeRepository;
+    private final WalletRepository walletRepository;
 
     @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository, UserRepository userRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, UserRepository userRepository, OMSLayer omsLayer, WalletService walletService, TradeRepository tradeRepository, WalletRepository walletRepository) {
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
+        this.omsLayer = omsLayer;
+        this.walletService = walletService;
+        this.tradeRepository = tradeRepository;
+        this.walletRepository = walletRepository;
     }
 
     @Override
+    @Transactional
     public Order placeOrder(Long userId, Order.Side side, Order.OrderType orderType, BigDecimal price, BigDecimal quantity) {
         if (quantity == null || quantity.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Order quantity must be greater than zero");
@@ -41,7 +57,16 @@ public class OrderServiceImpl implements OrderService {
         order.setRemainingQuantity(quantity);
         order.setStatus(Order.OrderStatus.PENDING);
 
-        return orderRepository.save(order);
+        if(omsLayer.validateBalance(userId, order)) {
+            Wallet wallet = walletService.getWalletByUserId(userId);
+            walletService.lockFunds(wallet.getId(), price.multiply(quantity)); // Lock the required funds for the order
+            return orderRepository.save(order);
+        } else {
+            order.setStatus(Order.OrderStatus.REJECTED);
+            orderRepository.save(order);
+            throw new RuntimeException("Insufficient balance to place the order");
+        }
+
     }
 
     @Override
@@ -103,4 +128,59 @@ public class OrderServiceImpl implements OrderService {
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
     }
+
+    @Override
+    public boolean checkOrderOwnByUser(Long orderId, Long userId) {
+        return orderRepository.existsByIdAndUserId(orderId, userId);
+    }
+
+    @Override
+    public List<Order> getOrdersByUserIdAndOrderStatus(Long userId, Order.OrderStatus orderStatus) {
+        return orderRepository.findByUserIdAndStatus(userId, orderStatus);
+    }
+
+
+    @Override
+    @Transactional
+    public void closeOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found: " + orderId));
+
+        if (order.getStatus() == Order.OrderStatus.CANCELLED) {
+            throw new IllegalStateException("Order is already closed.");
+        }
+
+        BigDecimal exitPrice = tradeRepository.findCurrentMarketPrice()
+                .orElse(BigDecimal.valueOf(1.0));
+
+        BigDecimal entryPrice = order.getPrice();
+        BigDecimal quantity = order.getQuantity();
+
+        // 1. Calculate Realized PnL
+        BigDecimal finalPnL;
+        if (order.getSide() == Order.Side.BUY) {
+            finalPnL = exitPrice.subtract(entryPrice).multiply(quantity);
+        } else {
+            finalPnL = entryPrice.subtract(exitPrice).multiply(quantity);
+        }
+
+        // 2. Lock Order State
+        order.setRealizedPnl(finalPnL);
+        order.setUnrealizedPnl(BigDecimal.ZERO);
+        order.setStatus(Order.OrderStatus.CANCELLED);
+        orderRepository.save(order);
+
+        // 3. Settle Wallet Base Cash ONCE
+        Wallet wallet = walletRepository.findByUserIdWithLock(order.getUser().getId())
+                .orElseThrow(() -> new IllegalStateException("Wallet not found"));
+
+        walletService.unlockFunds(wallet.getId(), wallet.getLockedBalance()); // Unlock the initial margin
+
+        BigDecimal currentBalance = wallet.getAvailableBalance() != null ? wallet.getAvailableBalance() : BigDecimal.ZERO;
+
+        wallet.setAvailableBalance(currentBalance.add(finalPnL));
+        walletRepository.save(wallet);
+    }
+
+
 }

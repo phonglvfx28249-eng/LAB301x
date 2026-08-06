@@ -2,20 +2,10 @@ import React, { useState } from "react";
 import { Wallet, Lock, ChevronDown, Filter, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import WindyLogo from "../components/common/windy-logo.jsx";
+import {useMarketResources} from "../context/MarketResoucesContext.jsx";
+import {useUserResources} from "../context/UserResourcesContext.jsx";
 
-const trades = [
-    {
-        id: "wid-1",
-        symbol: "W",
-        coin: "WID",
-        status: "Partial",
-        statusColor: "bg-yellow-500",
-        position: "Long",
-        positionColor: "text-green-600",
-        amount: "1,2000,3232",
-        time: "2026-06-03 20:00:00",
-    },
-];
+
 
 function Dropdown({ label, value }) {
     return (
@@ -33,7 +23,8 @@ export default function AccountDashboard() {
     const [wallet, setWallet] = useState("Spot");
     const [currency, setCurrency] = useState("BNB");
     const [status, setStatus] = useState("Filled");
-
+    const {tradeHistory} = useUserResources();
+    const trades = tradeHistory.filter(trade => trade.status === "PENDING" || trade.status === "FILLED" || trade.status === "OPENED");
     return (
         <div className="min-h-screen w-full bg-[#EAE3D5] px-8 py-6">
             {/* Header row: name + logo */}

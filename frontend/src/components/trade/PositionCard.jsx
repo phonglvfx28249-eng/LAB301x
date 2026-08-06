@@ -6,7 +6,7 @@ export default function PositionCard({
                                          price,
                                          marketPrice,
                                          amount,
-                                         duration,
+                                         status = "FILLED", // Added status prop
                                          roi,
                                          onClose,
                                      }) {
@@ -14,11 +14,26 @@ export default function PositionCard({
     const roiPositive = !roi.trim().startsWith("-");
     const labelColor = isSell ? "text-red-500" : "text-green-600";
 
+    // Helper to style status badges dynamically
+    const getStatusStyle = (statusStr) => {
+        switch (statusStr?.toUpperCase()) {
+            case "FILLED":
+                return "bg-green-100 text-green-700 border-green-200";
+            case "PARTIAL":
+            case "PENDING":
+                return "bg-amber-100 text-amber-700 border-amber-200";
+            case "CANCELLED":
+                return "bg-gray-100 text-gray-600 border-gray-200";
+            default:
+                return "bg-gray-100 text-gray-700 border-gray-200";
+        }
+    };
+
     return (
         <div className="border border-gray-700/50 rounded-md px-5 py-4 flex items-center justify-between">
-      <span className={`text-sm font-semibold ${labelColor} w-28`}>
-        {type}
-      </span>
+            <span className={`text-sm font-semibold ${labelColor} w-28`}>
+                {type}
+            </span>
 
             <div className="text-center">
                 <p className="text-xs text-gray-500">Price</p>
@@ -35,10 +50,18 @@ export default function PositionCard({
                 <p className="text-sm font-medium text-gray-900">{amount}</p>
             </div>
 
+            {/* Added Status Field */}
+            <div className="text-center">
+                <p className="text-xs text-gray-500 mb-0.5">Status</p>
+                <span className={`text-xs font-semibold px-2 py-0.5 rounded border ${getStatusStyle(status)}`}>
+                    {status}
+                </span>
+            </div>
+
             <div className="flex items-center gap-2">
-        <span className="text-sm font-semibold text-gray-900">
-          ROI: {roi}
-        </span>
+                <span className="text-sm font-semibold text-gray-900">
+                    ROI: {roi}
+                </span>
                 {roiPositive ? (
                     <ArrowUp size={16} className="text-green-600" strokeWidth={2.5} />
                 ) : (

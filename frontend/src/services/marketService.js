@@ -13,8 +13,8 @@ export const getOrderBookFormatResponse = (data) => {
     return data.map((order) => {
         return {
             "price": order.price,
-            "quantity": order.quantity,
-            "total": order.price * order.quantity
+            "remaining_quantity": order.remaining_quantity,
+            "total": order.price * order.remaining_quantity
         }
     });
 }
