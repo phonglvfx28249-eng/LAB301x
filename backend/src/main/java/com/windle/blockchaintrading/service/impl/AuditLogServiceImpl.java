@@ -1,11 +1,15 @@
 package com.windle.blockchaintrading.service.impl;
 
+import com.windle.blockchaintrading.common.PageResponse;
+import com.windle.blockchaintrading.dto.AuditLogDTO;
 import com.windle.blockchaintrading.entity.AuditLog;
 import com.windle.blockchaintrading.entity.User;
 import com.windle.blockchaintrading.repository.AuditLogRepository;
 import com.windle.blockchaintrading.repository.UserRepository;
 import com.windle.blockchaintrading.service.AuditLogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,5 +64,13 @@ public class AuditLogServiceImpl implements AuditLogService {
     @Override
     public List<AuditLog> getLogsByEntity(String entityName, Long entityId) {
         return auditLogRepository.findByEntityNameAndEntityId(entityName, entityId);
+    }
+
+    @Override
+    public PageResponse<AuditLogDTO> list(int page, int size, String search) {
+        Page<AuditLog> result = auditLogRepository.search(
+                search, PageRequest.of(page, size)
+        );
+        return PageResponse.of(result.map(AuditLogDTO::from));
     }
 }

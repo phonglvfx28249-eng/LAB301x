@@ -150,6 +150,8 @@ public class OrderServiceImpl implements OrderService {
             throw new IllegalStateException("Order is already closed.");
         }
 
+
+
         BigDecimal exitPrice = tradeRepository.findCurrentMarketPrice()
                 .orElse(BigDecimal.valueOf(1.0));
 
@@ -177,6 +179,12 @@ public class OrderServiceImpl implements OrderService {
         walletService.unlockFunds(wallet.getId(), wallet.getLockedBalance()); // Unlock the initial margin
 
         BigDecimal currentBalance = wallet.getAvailableBalance() != null ? wallet.getAvailableBalance() : BigDecimal.ZERO;
+
+
+        if(order.getStatus() != Order.OrderStatus.FILLED) {
+            // If the order was cancelled, we need to refund the locked funds
+            finalPnL = BigDecimal.valueOf(0);
+        }
 
         wallet.setAvailableBalance(currentBalance.add(finalPnL));
         walletRepository.save(wallet);

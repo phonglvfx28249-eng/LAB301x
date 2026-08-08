@@ -21,7 +21,6 @@ public interface TradeRepository extends JpaRepository<Trade, Long> {
 
     List<Trade> findBySellerId(Long sellerId);
 
-    List<Trade> findByBuyerIdOrSellerId(Long buyerId, Long sellerId, Pageable pageable);
 
     List<Trade> findByBuyOrderId(Long buyOrderId);
 
@@ -91,5 +90,8 @@ public interface TradeRepository extends JpaRepository<Trade, Long> {
 
     @Query("SELECT t.tradePrice FROM Trade t ORDER BY t.id DESC LIMIT 1")
     Optional<BigDecimal> findCurrentMarketPrice();
+
+    Page<Trade> findAllByOrderByCreatedAtDesc(Pageable pageable);
+    Page<Trade> findByBuyerIdOrSellerId(Long buyerId, Long sellerId, Pageable pageable);
 
 }

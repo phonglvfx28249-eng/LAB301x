@@ -130,16 +130,6 @@ export default function HistoryDashboard() {
                 </span>
                             </div>
                         </div>
-
-                        {/* Filters */}
-                        <div className="flex items-center gap-4 mb-2 ">
-                            <Dropdown label="Wallet" value={wallet2} />
-                            <Dropdown label="Currency" value={currency} />
-                            <Dropdown label="Status" value={status} />
-                            <button className="p-2  ml-2">
-                                <Filter size={16} strokeWidth={2} />
-                            </button>
-                        </div>
                     </div>
 
                     <div className="border-b border-gray-700/60 mb-2" />

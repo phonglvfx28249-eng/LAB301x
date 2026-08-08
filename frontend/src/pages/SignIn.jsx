@@ -53,7 +53,7 @@ export default function SignInForm() {
             if(user){
 
                 if(user.role === "ADMIN"){
-                    navigate("/admin/dashboard");
+                    navigate("/admin/users");
                 } else{
                     navigate("/user/dashboard");
                 }

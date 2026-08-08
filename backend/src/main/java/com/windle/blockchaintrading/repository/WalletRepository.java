@@ -3,6 +3,8 @@ package com.windle.blockchaintrading.repository;
 import com.windle.blockchaintrading.entity.User;
 import com.windle.blockchaintrading.entity.Wallet;
 import jakarta.persistence.LockModeType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
@@ -33,5 +35,14 @@ public interface WalletRepository extends JpaRepository<Wallet, Long> {
 
     @Query("SELECT w.availableBalance FROM Wallet w WHERE w.user.id = :userId")
     Optional<BigDecimal> findAvailableBalanceByUserId(@Param("userId") Long userId);
+
+    @Query("""
+        SELECT u.id, u.username, w.id, w.availableBalance, w.lockedBalance
+        FROM Wallet w
+        JOIN User u ON u.id = w.user.id
+        WHERE (:search IS NULL OR :search = ''
+               OR LOWER(u.username) LIKE LOWER(CONCAT('%', :search, '%')))
+        """)
+    Page<Object[]> searchWithUsername(@Param("search") String search, Pageable pageable);
 
 }

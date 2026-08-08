@@ -7,6 +7,7 @@ import com.windle.blockchaintrading.entity.User;
 import com.windle.blockchaintrading.repository.OrderRepository;
 import com.windle.blockchaintrading.repository.TradeRepository;
 import com.windle.blockchaintrading.repository.UserRepository;
+import com.windle.blockchaintrading.service.BlockService;
 import com.windle.blockchaintrading.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,14 +25,18 @@ public class TradeServiceImpl implements TradeService {
     private final TradeRepository tradeRepository;
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
+    private final BlockService blockService;
+
 
     @Autowired
     public TradeServiceImpl(TradeRepository tradeRepository,
                             OrderRepository orderRepository,
-                            UserRepository userRepository) {
+                            UserRepository userRepository,
+                            BlockService blockService) {
         this.tradeRepository = tradeRepository;
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
+        this.blockService = blockService;
     }
 
     @Override
@@ -64,6 +69,8 @@ public class TradeServiceImpl implements TradeService {
         trade.setQuantity(quantity);
         trade.setTotalAmount(tradePrice.multiply(quantity));
 
+        blockService.addTradeToMempool(trade.getId());
+
         return tradeRepository.save(trade);
     }
 
@@ -81,7 +88,7 @@ public class TradeServiceImpl implements TradeService {
 
     @Override
     public List<Trade> getTradesByUserId(Long userId, Pageable pageable) {
-        return tradeRepository.findByBuyerIdOrSellerId(userId, userId, pageable);
+        return (List<Trade>) tradeRepository.findByBuyerIdOrSellerId(userId, userId, pageable);
     }
 
     @Override

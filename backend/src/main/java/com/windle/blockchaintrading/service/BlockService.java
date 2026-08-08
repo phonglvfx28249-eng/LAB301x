@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface BlockService {
 
+    void addTradeToMempool(Long tradeId);
+
     boolean hashExists(String currentHash);
 
     Block createBlock(List<Long> tradeIds);

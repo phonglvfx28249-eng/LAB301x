@@ -15,4 +15,6 @@ public interface BlockTransactionRepository extends JpaRepository<BlockTransacti
     Optional<BlockTransaction> findByTradeId(Long tradeId);
 
     boolean existsByTradeId(Long tradeId);
+
+    int countByBlockId(Long blockId);
 }

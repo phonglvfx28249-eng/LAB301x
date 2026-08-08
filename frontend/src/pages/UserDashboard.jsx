@@ -10,6 +10,7 @@ export default function UserDashboard() {
     const { wallet, loading } = useUserResources();
     const {marketPrice} = useMarketResources();
 
+
     // 1. Loading Guard: Wait until initial data is fetched
     if (loading || !wallet) {
         return (

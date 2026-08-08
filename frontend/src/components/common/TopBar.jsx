@@ -1,8 +1,19 @@
 import React from "react";
-import { Wallet, UserCircle2, FileClock, LineChart } from "lucide-react";
-import {Link} from "react-router-dom";
+import { Wallet, UserCircle2, FileClock, LineChart, LogOut } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import {useUserResources} from "../../context/UserResourcesContext.jsx";
+import {useAuth} from "../../context/AuthContext.jsx";
 
 export default function TopBar({ amount = 1000, currency = "USD" }) {
+    const navigate = useNavigate();
+    const {logout} = useAuth();
+
+    const handleLogout = () => {
+
+        logout();
+        navigate("/login");
+    };
+
     return (
         <div className="flex items-center justify-between border-b border-gray-700/60 pb-3 mb-2">
             <div className="flex items-center gap-2 text-sm text-gray-900">
@@ -34,6 +45,14 @@ export default function TopBar({ amount = 1000, currency = "USD" }) {
                         <LineChart size={16} strokeWidth={2} />
                     </button>
                 </Link>
+                <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="flex items-center gap-1.5 text-red-500 hover:opacity-70 transition-opacity"
+                >
+                    <span>Logout</span>
+                    <LogOut size={16} strokeWidth={2} />
+                </button>
             </nav>
         </div>
     );

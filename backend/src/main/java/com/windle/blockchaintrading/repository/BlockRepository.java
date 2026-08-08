@@ -1,6 +1,8 @@
 package com.windle.blockchaintrading.repository;
 
 import com.windle.blockchaintrading.entity.Block;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +19,6 @@ public interface BlockRepository extends JpaRepository<Block, Long> {
 
     // Useful for grabbing the chain tip when computing the next block's previous_hash
     Optional<Block> findTopByOrderByBlockIndexDesc();
+
+    Page<Block> findAllByOrderByBlockIndexDesc(Pageable pageable);
 }

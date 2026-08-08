@@ -20,11 +20,12 @@ function Dropdown({ label, value }) {
 }
 
 export default function AccountDashboard() {
-    const [wallet, setWallet] = useState("Spot");
     const [currency, setCurrency] = useState("BNB");
     const [status, setStatus] = useState("Filled");
-    const {tradeHistory} = useUserResources();
+    const {tradeHistory,wallet} = useUserResources();
     const trades = tradeHistory.filter(trade => trade.status === "PENDING" || trade.status === "FILLED" || trade.status === "OPENED");
+
+
     return (
         <div className="min-h-screen w-full bg-[#EAE3D5] px-8 py-6">
             {/* Header row: name + logo */}
@@ -50,26 +51,18 @@ export default function AccountDashboard() {
                     <div className="flex items-center gap-2">
                         <Wallet size={16} strokeWidth={2} />
                         <span>
-                Amount: <span className="font-medium">1000$ (USD)</span>
+                Amount: <span className="font-medium">{wallet?.available_balance}$ (USD)</span>
               </span>
                     </div>
                     <div className="flex items-center gap-2">
                         <Lock size={16} strokeWidth={2} />
                         <span>
-                Locked: <span className="font-medium">500$ (USD)</span>
+                Locked: <span className="font-medium">{wallet?.locked_balance}$ (USD)</span>
               </span>
                     </div>
                 </div>
 
                 {/* Filters */}
-                <div className="flex items-center gap-4 mb-2 ">
-                    <Dropdown label="Wallet" value={wallet} />
-                    <Dropdown label="Currency" value={currency} />
-                    <Dropdown label="Status" value={status} />
-                    <button className="p-2  ml-2">
-                        <Filter size={16} strokeWidth={2} />
-                    </button>
-                </div>
             </div>
 
             <div className="border-b border-gray-700/60 mb-2" />

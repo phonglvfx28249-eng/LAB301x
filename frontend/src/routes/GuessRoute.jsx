@@ -5,7 +5,7 @@ export default function GuessRoute() {
     const {user} = useAuth();
     if(user){
         if(user.role === "ADMIN"){
-            return <Navigate to={"/admin/dashboard"} />;
+            return <Navigate to={"/admin/users"} />;
         } else{
             return <Navigate to={"/user/dashboard"} />;
         }

@@ -11,6 +11,12 @@ import MarketDashboard from "../pages/MarketDashboard.jsx";
 import HistoryDashboard from "../pages/HistoryDashboard.jsx";
 import UserResourcesProvider from "../context/UserResourcesContext.jsx";
 import MarketRoute from "./MarketRoute.jsx";
+import AdminLayout from "../pages/admin/AdminLayout.jsx";
+import UserManagement from "../pages/admin/UserManagement.jsx";
+import WalletManagement from "../pages/admin/WalletManagement.jsx";
+import AuditLogManagement from "../pages/admin/AuditLogManagement.jsx";
+import BlockchainManagement from "../pages/admin/BlockchainManagement.jsx";
+import TradeManagement from "../pages/admin/TradeManagement.jsx";
 
 
 
@@ -41,7 +47,13 @@ export default function AppRoutes({isAuthenticated}){
             </Route>
 
             <Route path="/admin" element={<ProtectedAdminRoute/>}>
-                <Route path="dashboard" element={<div>Admin Dashboard</div>}/>
+                    <Route element={<AdminLayout />}>
+                        <Route path="users" element={<UserManagement />} />
+                        <Route path="wallets" element={<WalletManagement />} />
+                        <Route path="audit-logs" element={<AuditLogManagement />} />
+                        <Route path="blockchain" element={<BlockchainManagement />} />
+                        <Route path="trades" element={<TradeManagement />} />
+                    </Route>
             </Route>
 
             <Route element={<MarketRoute/>}>

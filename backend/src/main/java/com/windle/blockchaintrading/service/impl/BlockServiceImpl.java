@@ -7,27 +7,30 @@ import com.windle.blockchaintrading.repository.BlockRepository;
 import com.windle.blockchaintrading.repository.BlockTransactionRepository;
 import com.windle.blockchaintrading.repository.TradeRepository;
 import com.windle.blockchaintrading.service.BlockService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * This is NOT a real mining/consensus chain - it's just a tamper-evident audit
- * trail. Each block hashes its own content plus the previous block's hash, so
- * if any row in the DB gets edited directly, isChainValid() will catch it.
- * No proof-of-work, no difficulty target, no nonce guessing.
- */
 @Service
 public class BlockServiceImpl implements BlockService {
 
+    private static final Logger log = LoggerFactory.getLogger(BlockServiceImpl.class);
     private static final String GENESIS_PREVIOUS_HASH = "0";
+
+    // Thread-safe mempool storing trade IDs waiting to be mined into a block
+    private final List<Long> mempool = Collections.synchronizedList(new ArrayList<>());
 
     private final BlockRepository blockRepository;
     private final TradeRepository tradeRepository;
@@ -44,13 +47,46 @@ public class BlockServiceImpl implements BlockService {
 
 
     @Override
+    public void addTradeToMempool(Long tradeId) {
+        mempool.add(tradeId);
+        log.info("Trade #{} added to mempool. Current mempool size: {}", tradeId, mempool.size());
+    }
+
+
+    // create block after a 3000ms interval
+    @Scheduled(fixedRate = 3000)
+    @Transactional
+    public void scheduledBlockForge() {
+        if (mempool.isEmpty()) {
+            return; // Skip block creation if no trades occurred in this 3-second cycle
+        }
+
+        // Drain trade IDs atomically from mempool
+        List<Long> tradesToMine;
+        synchronized (mempool) {
+            tradesToMine = new ArrayList<>(mempool);
+            mempool.clear();
+        }
+
+        try {
+            Block block = createBlock(tradesToMine);
+            log.info("New Block #{} created! Hash: {} | Contains {} trades",
+                    block.getBlockIndex(), block.getCurrentHash(), tradesToMine.size());
+        } catch (Exception e) {
+            log.error("Failed to forge scheduled block: ", e);
+            // Re-queue trades back into mempool if block creation failed
+            mempool.addAll(tradesToMine);
+        }
+    }
+
+    @Override
     public boolean hashExists(String currentHash) {
         return blockRepository.existsByCurrentHash(currentHash);
     }
 
     @Override
+    @Transactional
     public Block createBlock(List<Long> tradeIds) {
-        // Fetch trades and create block transactions
         if (tradeIds == null || tradeIds.isEmpty()) {
             throw new IllegalArgumentException("Cannot create a block with no trades");
         }
@@ -63,7 +99,6 @@ public class BlockServiceImpl implements BlockService {
         String merkleRoot = createMerkleTree(trades);
 
         Block newBlock = new Block();
-        // set new block data
         newBlock.setBlockIndex(newBlockIndex);
         newBlock.setPreviousHash(previousHash);
         newBlock.setCurrentHash(hashData(previousHash + merkleRoot + newBlockIndex));
@@ -72,7 +107,6 @@ public class BlockServiceImpl implements BlockService {
         Block saveBlock = blockRepository.save(newBlock);
 
         recordBlockTransactions(saveBlock, trades);
-
 
         return saveBlock;
     }
@@ -107,7 +141,8 @@ public class BlockServiceImpl implements BlockService {
             if (!currentBlock.getPreviousHash().equals(previousBlock.getCurrentHash())) {
                 return false;
             }
-            String recalculatedHash = hashData(currentBlock.getPreviousHash() + createMerkleTree(getTradesForBlock(currentBlock)) + +currentBlock.getBlockIndex());
+            // Fixed typo: Removed extra '+' sign before currentBlock.getBlockIndex()
+            String recalculatedHash = hashData(currentBlock.getPreviousHash() + createMerkleTree(getTradesForBlock(currentBlock)) + currentBlock.getBlockIndex());
             if (!currentBlock.getCurrentHash().equals(recalculatedHash)) {
                 return false;
             }
@@ -115,17 +150,14 @@ public class BlockServiceImpl implements BlockService {
         return true;
     }
 
-
-    // some of the basic of hashing function and blockchain
+    // Merkle tree hashing function
     private String createMerkleTree(List<Trade> trades) {
-        // simple implementation: concatenate trade IDs and hash them
         StringBuilder merkleTree = new StringBuilder();
         for (Trade trade : trades) {
             merkleTree.append(hashData(trade.getId() + ":" + trade.getTotalAmount().toString()));
         }
         return hashData(merkleTree.toString());
     }
-
 
     private String hashData(String data) {
         try {
@@ -143,7 +175,7 @@ public class BlockServiceImpl implements BlockService {
         }
     }
 
-    // record to block_transaction, identify which trade included in each block
+    // Record to block_transaction table each block contain trades
     private void recordBlockTransactions(Block block, List<Trade> trades) {
         List<BlockTransaction> blockTransactions = trades.stream()
                 .map(trade -> {
