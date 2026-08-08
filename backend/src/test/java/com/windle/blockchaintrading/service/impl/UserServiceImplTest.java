@@ -64,7 +64,7 @@ class UserServiceImplTest {
         verify(userRepository).save(captor.capture());
         User savedUser = captor.getValue();
 
-        assertEquals("newuser", savedUser.getUsername());
+        assertEquals("new@example.com", savedUser.getUsername());
         assertEquals("new@example.com", savedUser.getEmail());
         assertEquals("encodedPass", savedUser.getPassword());
         assertEquals("New User", savedUser.getFullName());
@@ -77,7 +77,7 @@ class UserServiceImplTest {
         List<User> result = userService.getAllUsers();
 
         assertEquals(1, result.size());
-        assertEquals("testuser", result.get(0).getUsername());
+        assertEquals("test@example.com", result.get(0).getUsername());
     }
 
     @Test
@@ -87,7 +87,7 @@ class UserServiceImplTest {
         User result = userService.getUserByEmail("test@example.com");
 
         assertNotNull(result);
-        assertEquals("testuser", result.getUsername());
+        assertEquals("test@example.com", result.getUsername());
     }
 
     @Test
@@ -116,7 +116,7 @@ class UserServiceImplTest {
         userService.updateUser(1L, "updatedUser", "updated@example.com", "Updated Name");
 
         verify(userRepository).save(sampleUser);
-        assertEquals("updatedUser", sampleUser.getUsername());
+        assertEquals("updated@example.com", sampleUser.getUsername());
         assertEquals("updated@example.com", sampleUser.getEmail());
         assertEquals("Updated Name", sampleUser.getFullName());
     }

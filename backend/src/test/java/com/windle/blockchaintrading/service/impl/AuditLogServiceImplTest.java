@@ -73,9 +73,16 @@ class AuditLogServiceImplTest {
 
     @Test
     void list_shouldReturnPageResponse() {
+
+        User user = new User();
+        user.setId(1L);
+
+
         AuditLog log = new AuditLog();
         log.setId(10L);
         log.setAction("LOGIN");
+        log.setUser(user);
+
         Page<AuditLog> page = new PageImpl<>(List.of(log));
 
         when(auditLogRepository.search(eq("test"), any(PageRequest.class))).thenReturn(page);

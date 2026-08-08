@@ -18,7 +18,7 @@ public class AuditLogDTO {
     public static AuditLogDTO from(AuditLog log) {
         AuditLogDTO dto = new AuditLogDTO();
         dto.id = log.getId();
-        dto.userId = log.getUser().getId();
+        dto.userId = log.getUser() != null ? log.getUser().getId() : null;
         dto.action = log.getAction();
         dto.entityName = log.getEntityName();
         dto.entityId = log.getEntityId();

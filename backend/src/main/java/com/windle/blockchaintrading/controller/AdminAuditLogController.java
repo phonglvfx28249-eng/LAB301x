@@ -26,6 +26,8 @@ public class AdminAuditLogController {
         @RequestParam(defaultValue = "10") int size,
         @RequestParam(required = false) String search
     ) {
+
+        System.out.println("AdminAuditLogController.list called with page=" + page + ", size=" + size + ", search=" + search);
         return auditLogService.list(page, size, search);
     }
 }

@@ -25,6 +25,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class OrderControllerTest {
 
     @Mock
@@ -49,12 +50,12 @@ class OrderControllerTest {
 
     @Test
     void sendOrder_shouldReturnSuccessResponse() {
-        OrderRequest request = new OrderRequest(null, 1L, "LONG", "SHORT",BigDecimal.valueOf(1.2), BigDecimal.valueOf(90));
+        OrderRequest request = new OrderRequest(null, 1L, "BUY", "LIMIT",BigDecimal.valueOf(1.2), BigDecimal.valueOf(90));
         Order order = new Order();
         order.setId(10L);
 
         when(authentication.getPrincipal()).thenReturn(sampleUser);
-        when(orderService.placeOrder(1L, Order.Side.BUY, Order.OrderType.LIMIT, BigDecimal.valueOf(100), BigDecimal.valueOf(2)))
+        when(orderService.placeOrder(1L, Order.Side.BUY, Order.OrderType.LIMIT, BigDecimal.valueOf(1.2), BigDecimal.valueOf(90)))
                 .thenReturn(order);
 
         ResponseEntity<?> response = orderController.sendOrder(request, authentication);
@@ -65,7 +66,7 @@ class OrderControllerTest {
 
     @Test
     void closeOrder_shouldReturnBadRequestIfNotOwned() {
-        OrderRequest request = new OrderRequest(99L, 0L, "LONG", "SHORT", BigDecimal.valueOf(1.2), BigDecimal.valueOf(90));
+        OrderRequest request = new OrderRequest(99L, 0L, "BUY", "SHORT", BigDecimal.valueOf(1.2), BigDecimal.valueOf(90));
 
         when(authentication.getPrincipal()).thenReturn(sampleUser);
         when(orderService.checkOrderOwnByUser(99L, 1L)).thenReturn(false);
@@ -77,7 +78,7 @@ class OrderControllerTest {
 
     @Test
     void closeOrder_shouldCloseOrderWhenOwned() {
-        OrderRequest request = new OrderRequest(10L, 1L, "LONG", "SHORT", BigDecimal.valueOf(1.2), BigDecimal.valueOf(90));
+        OrderRequest request = new OrderRequest(10L, 1L, "BUY", "SHORT", BigDecimal.valueOf(1.2), BigDecimal.valueOf(90));
 
         when(authentication.getPrincipal()).thenReturn(sampleUser);
         when(orderService.checkOrderOwnByUser(10L, 1L)).thenReturn(true);

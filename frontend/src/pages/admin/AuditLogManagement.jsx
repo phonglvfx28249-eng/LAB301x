@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import AdminHeader from "../../components/admin/AdminHeader.jsx";
 import Pagination from "../../components/admin/Pagination.jsx";
 import SearchBar from "../../components/admin/SearchBar.jsx";
-import { getAdminAuditLogs } from "../../api/auditApi.js"; // 👈 Import API function
+import { getAdminAuditLogs } from "../../api/auditApi.js";
 
 const PAGE_SIZE = 8;
 
@@ -17,8 +17,12 @@ export default function AuditLogManagement() {
     setLoading(true);
     try {
       const data = await getAdminAuditLogs(page, PAGE_SIZE, search);
-      setLogs(data.content || []);
-      setTotalPages(data.totalPages || 0);
+      setLogs(data?.content || []);
+
+      // Ensure totalPages is explicitly cast to a Number
+      // Checks both data.totalPages (PageResponse) and data.page.totalPages (Spring HAL)
+      const parsedTotalPages = Number(data?.totalPages ?? data?.page?.totalPages ?? 0);
+      setTotalPages(parsedTotalPages);
     } catch (err) {
       console.error("Failed to fetch audit logs:", err);
     } finally {
@@ -30,6 +34,7 @@ export default function AuditLogManagement() {
     fetchLogs();
   }, [fetchLogs]);
 
+  // Reset to first page when searching
   useEffect(() => {
     setPage(0);
   }, [search]);
@@ -60,7 +65,7 @@ export default function AuditLogManagement() {
             {logs.map((log) => (
                 <tr key={log.id} className="text-gray-800">
                   <td className="py-3 pr-4 whitespace-nowrap">
-                    {new Date(log.createdAt).toLocaleString()}
+                    {log.createdAt ? new Date(log.createdAt).toLocaleString() : "—"}
                   </td>
                   <td className="py-3 pr-4">{log.userId ?? "—"}</td>
                   <td className="py-3 pr-4 font-medium">{log.action}</td>
@@ -69,7 +74,7 @@ export default function AuditLogManagement() {
                     {log.entityId ? ` #${log.entityId}` : ""}
                   </td>
                   <td className="py-3 pr-4 max-w-xs truncate">{log.description}</td>
-                  <td className="py-3 pr-4">{log.ipAddress}</td>
+                  <td className="py-3 pr-4">{log.ipAddress ?? "—"}</td>
                 </tr>
             ))}
 
@@ -83,7 +88,12 @@ export default function AuditLogManagement() {
             </tbody>
           </table>
 
-          <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+          {/* Pass numeric values to Pagination */}
+          <Pagination
+              page={Number(page)}
+              totalPages={Number(totalPages)}
+              onPageChange={(newPage) => setPage(Number(newPage))}
+          />
         </div>
       </div>
   );

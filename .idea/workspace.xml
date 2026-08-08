@@ -9,29 +9,18 @@
   <component name="ChangeListManager">
     <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/AuditLogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/AuditLogRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/BlockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/BlockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/BlockTransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/BlockTransactionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/TradeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/TradeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/repository/WalletRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/AuditLogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/AuditLogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/BlockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/BlockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/AuditLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/AuditLogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/BlockServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/BlockServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/TradeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/TradeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/TopBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/TopBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AccountDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AccountDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/HistoryDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/HistoryDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignIn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/routes/AppRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/AppRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/routes/GuessRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/GuessRoute.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AdminAuditLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AdminAuditLogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/AuditLogDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/dto/AuditLogDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/controller/AuthControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/controller/OrderControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/controller/OrderControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/market/MarketDataServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/market/MarketDataServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/market/OMSLayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/market/OMSLayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/matching/MatchingEngineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/matching/MatchingEngineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/service/BlockchainAdminServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/service/BlockchainAdminServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/service/UserAdminServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/service/UserAdminServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/service/impl/AuditLogServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/service/impl/AuditLogServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/service/impl/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/service/impl/UserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/util/JwtUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/windle/blockchaintrading/util/JwtUtilTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,61 +67,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0326882128585319E-50" />
-      <entry key="MS500" value="1.0064538001407241E-10" />
-      <entry key="S2" value="0.003167367535290995" />
-      <entry key="S5" value="0.10006435344730286" />
-      <entry key="S10" value="0.31639242595650297" />
-      <entry key="S30" value="0.7440144229755514" />
-      <entry key="S60" value="1.1841422646232254" />
-      <entry key="M2" value="2.022650357730095" />
-      <entry key="M5" value="5.904682199499269" />
-      <entry key="M10" value="12.187395962458305" />
-      <entry key="M15" value="16.70067503151196" />
-      <entry key="M30" value="25.834126177577" />
-      <entry key="H1" value="43.290342408264195" />
-      <entry key="H2" value="85.75868825325232" />
-      <entry key="H4" value="205.29575161937996" />
-      <entry key="D1" value="1839.9426426010502" />
-      <entry key="W1" value="3927.9575734530617" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000036854038" />
+      <entry key="S10" value="1.000132433374537" />
+      <entry key="S30" value="1.1534035587787577" />
+      <entry key="S60" value="2.1340095278903894" />
+      <entry key="M2" value="5.032909691452456" />
+      <entry key="M5" value="11.221113460401265" />
+      <entry key="M10" value="23.487784278446888" />
+      <entry key="M15" value="43.08863762163565" />
+      <entry key="M30" value="101.34862385173089" />
+      <entry key="H1" value="173.2425120410558" />
+      <entry key="H2" value="254.583800354485" />
+      <entry key="H4" value="393.26313081637716" />
+      <entry key="D1" value="2035.4012878492904" />
+      <entry key="W1" value="4158.528688034932" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000000000004" />
-      <entry key="S2" value="1.0001527542351356" />
-      <entry key="S5" value="1.0297575632698133" />
-      <entry key="S10" value="1.1725956518204617" />
-      <entry key="S30" value="1.628283401987249" />
-      <entry key="S60" value="2.124544328242828" />
-      <entry key="M2" value="2.7346301755222617" />
-      <entry key="M5" value="3.436565307677517" />
-      <entry key="M10" value="3.9285415841907367" />
-      <entry key="M15" value="4.310761662682367" />
-      <entry key="M30" value="5.894473112226017" />
-      <entry key="H1" value="10.01017174122625" />
-      <entry key="H2" value="19.824958423264736" />
-      <entry key="H4" value="58.29609496953128" />
-      <entry key="D1" value="529.9197117762133" />
-      <entry key="W1" value="1012.5891398677221" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="7.514014435970121E-90" />
+      <entry key="S2" value="6.015649690810301E-23" />
+      <entry key="S5" value="2.302045518816167E-9" />
+      <entry key="S10" value="9.16214371792302E-5" />
+      <entry key="S30" value="0.11290304404840748" />
+      <entry key="S60" value="0.689874347722086" />
+      <entry key="M2" value="1.7773762333114649" />
+      <entry key="M5" value="3.26376536159778" />
+      <entry key="M10" value="4.301046448706598" />
+      <entry key="M15" value="5.208315097096561" />
+      <entry key="M30" value="7.847886417551395" />
+      <entry key="H1" value="12.734888448392748" />
+      <entry key="H2" value="22.758591112926013" />
+      <entry key="H4" value="58.79961571012784" />
+      <entry key="D1" value="526.0293679669962" />
+      <entry key="W1" value="1018.0459980411638" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.005961950035002181" />
-      <entry key="MS500" value="0.35898612767057325" />
-      <entry key="S2" value="0.7761400499382396" />
-      <entry key="S5" value="1.013152267686587" />
-      <entry key="S10" value="1.404775048146399" />
-      <entry key="S30" value="2.3255679823023616" />
-      <entry key="S60" value="3.2762560030539225" />
-      <entry key="M2" value="4.735406275004654" />
-      <entry key="M5" value="9.32900997529438" />
-      <entry key="M10" value="16.107450214846033" />
-      <entry key="M15" value="21.004352693588125" />
-      <entry key="M30" value="31.722544855523253" />
-      <entry key="H1" value="53.29390389198044" />
-      <entry key="H2" value="105.57607961298942" />
-      <entry key="H4" value="263.5814379832442" />
-      <entry key="D1" value="2369.8471776190695" />
-      <entry key="W1" value="4940.542452662438" />
+      <entry key="MS100" value="8.824830504648492E-6" />
+      <entry key="MS500" value="0.09753068502171293" />
+      <entry key="S2" value="0.5588372136976422" />
+      <entry key="S5" value="0.7923446509748451" />
+      <entry key="S10" value="0.8903489295014049" />
+      <entry key="S30" value="1.2230417860724787" />
+      <entry key="S60" value="2.7888802297765354" />
+      <entry key="M2" value="6.780749467709276" />
+      <entry key="M5" value="14.466824045403374" />
+      <entry key="M10" value="27.77757847978593" />
+      <entry key="M15" value="48.28796505403902" />
+      <entry key="M30" value="109.18941987669785" />
+      <entry key="H1" value="185.97059951107775" />
+      <entry key="H2" value="277.3350009433337" />
+      <entry key="H4" value="452.05282848315466" />
+      <entry key="D1" value="2561.415681948315" />
+      <entry key="W1" value="5176.570416677695" />
     </decayedShown>
   </component>
   <component name="PackageJsonUpdateNotifier">
@@ -168,46 +157,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BlockchaintradingApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/OneDriveWind/OneDrive/SFEFUNIX/blockchaintradingv2/frontend/src/pages/admin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Intellji\\IntelliJ IDEA 2026.1.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.BlockchaintradingApplicationTests.executor": "Run",
+    "JUnit.OMSLayerTest.matchingEngineOrder_shouldProcessPendingAndOpenOrders.executor": "Debug",
+    "JUnit.java in blockchaintrading.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.BlockchaintradingApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/HP/OneDriveWind/OneDrive/SFEFUNIX/blockchaintradingv2/frontend/src/pages/admin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "D:\\Intellji\\IntelliJ IDEA 2026.1.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\OneDriveWind\OneDrive\SFEFUNIX\blockchaintradingv2\frontend\src\pages\admin" />
@@ -222,7 +214,15 @@
       <recent name="C:\Users\HP\OneDriveWind\OneDrive\SFEFUNIX\blockchaintrading\blockchaintrading\backend" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.BlockchaintradingApplication">
+    <configuration name="java in blockchaintrading" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blockchaintrading" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/backend/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BlockchaintradingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="blockchaintrading" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.windle.blockchaintrading.BlockchaintradingApplication" />
@@ -230,6 +230,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.java in blockchaintrading" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -280,7 +285,7 @@
       <workItem from="1785996727899" duration="9197000" />
       <workItem from="1786017839086" duration="3381000" />
       <workItem from="1786084139307" duration="9823000" />
-      <workItem from="1786173524726" duration="1337000" />
+      <workItem from="1786173524726" duration="4529000" />
     </task>
     <task id="LOCAL-00001" summary="Merge two branch">
       <option name="closed" value="true" />
@@ -323,6 +328,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge two branch" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge two branch" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/OMSLayer.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

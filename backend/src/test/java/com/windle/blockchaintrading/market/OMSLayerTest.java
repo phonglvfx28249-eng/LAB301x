@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-
+@ExtendWith(MockitoExtension.class)
 class OMSLayerTest {
 
     @Mock
@@ -80,7 +81,7 @@ class OMSLayerTest {
         pendingOrder.setId(100L);
         pendingOrder.setStatus(Order.OrderStatus.PENDING);
 
-        when(orderRepository.findAll()).thenReturn(List.of(pendingOrder));
+        when(orderRepository.findAll()).thenReturn(new ArrayList<>(List.of(pendingOrder)));
 
         omsLayer.matchingEngineOrder();
 
