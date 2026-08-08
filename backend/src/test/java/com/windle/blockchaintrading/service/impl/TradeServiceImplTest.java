@@ -108,7 +108,7 @@ class TradeServiceImplTest {
         Page<UserTradeResponse> response = tradeService.getUserTradesPaginated(1L, 0, 10);
 
         assertEquals(1, response.getContent().size());
-        assertEquals("BUY", response.getContent().get(0).getSide());
+        assertEquals("BUY", response.getContent().get(0).side());
     }
 
     @Test
@@ -127,8 +127,8 @@ class TradeServiceImplTest {
         UserTradeResponse response = tradeService.getTradeByIdAndUserId(100L, 1L);
 
         assertNotNull(response);
-        assertEquals("BUY", response.getSide());
-        assertEquals(100L, response.getTradeId());
+        assertEquals("BUY", response.side());
+        assertEquals(100L, response.id());
     }
 
     @Test
@@ -138,6 +138,6 @@ class TradeServiceImplTest {
         UserTradeResponse response = tradeService.getTradeByIdAndUserId(100L, 2L);
 
         assertNotNull(response);
-        assertEquals("SELL", response.getSide());
+        assertEquals("SELL", response.side());
     }
 }
