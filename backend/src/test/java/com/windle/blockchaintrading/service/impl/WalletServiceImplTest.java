@@ -126,7 +126,7 @@ class WalletServiceImplTest {
         WalletResponse response = walletService.getUserWalletResponse(1L);
 
         assertNotNull(response);
-        assertEquals(10L, response.getId());
-        assertEquals(BigDecimal.valueOf(550), response.getAvailableBalance());
+        assertEquals(10L, response.id());
+        assertEquals(BigDecimal.valueOf(550), response.available_balance());
     }
 }
