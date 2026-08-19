@@ -202,3 +202,29 @@ npm run dev
 
 3. **Advanced Database Architecture & Distributed Locking:**
 * Integrate **Redis / Redlock** for memory-speed wallet locking and caching, resolving database Lock Wait Timeouts during high traffic spikes.
+
+---
+
+## 📚 References & Resources
+
+### 🔗 Online Tutorials & Articles
+* [Understanding Matching Engines in Trading](https://www.binance.com/en/academy/articles/understanding-matching-engines-in-trading) – Binance Academy
+* [Mockito Tutorial](https://www.tutorialspoint.com/mockito/index.htm) – TutorialsPoint
+* [React Context API Explained with Examples](https://www.freecodecamp.org/news/react-context-api-explained-with-examples/) – freeCodeCamp
+* [Spring Boot 3.0 JWT Authentication with Spring Security using MySQL Database](https://www.geeksforgeeks.org/springboot/spring-boot-3-0-jwt-authentication-with-spring-security-using-mysql-database/) – GeeksforGeeks
+* [PriorityQueue in Java](https://www.geeksforgeeks.org/java/priority-queue-in-java/) – GeeksforGeeks
+* [Bid and Ask Definition & Example](https://www.investopedia.com/terms/b/bid-and-ask.asp) – Investopedia
+* [Pessimistic Locking in JPA](https://www.baeldung.com/jpa-pessimistic-locking) – Baeldung
+* [Optimistic Lock và Pessimistic Lock](https://viblo.asia/p/009-optimistic-lock-va-pessimistic-lock-L4x5xr7aZBM) – Viblo
+* [Java Record Keyword](https://www.baeldung.com/java-record-keyword) – Baeldung
+* [What is OAuth 2.0?](https://auth0.com/intro-to-iam/what-is-oauth-2) – Auth0
+
+### 📖 Frameworks, Protocols & Official Documentation
+* [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+* [Spring Security Documentation](https://spring.io/projects/spring-security)
+* [Spring Data JPA Documentation](https://spring.io/projects/spring-data-jpa)
+* [Java Concurrency / LinkedBlockingQueue](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/LinkedBlockingQueue.html)
+* [React Documentation](https://react.dev/)
+* [Binance API Documentation](https://binance-docs.github.io/apidocs/spot/en/)
+* [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/)
+* [TradingView Lightweight Charts Tutorials & Docs](https://tradingview.github.io/lightweight-charts/docs)
