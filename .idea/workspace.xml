@@ -10,16 +10,6 @@
     <list default="true" id="72be5bce-c9cd-4a9d-9e65-aacf2f2ba3f1" name="Changes" comment="Merge two branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LAB301x/LAB301X/SRS.docx" beforeDir="false" afterPath="$PROJECT_DIR$/LAB301x/LAB301X/SRS.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/BlockchaintradingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/BlockchaintradingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AdminAuditLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AdminAuditLogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/EmailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/MarketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/MarketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/UserResourcesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/controller/UserResourcesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/OMSLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/market/OMSLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/windle/blockchaintrading/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,61 +56,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.09670928625076669" />
-      <entry key="MS500" value="2.56165480793664" />
-      <entry key="S2" value="9.014932203848318" />
-      <entry key="S5" value="15.85280446697639" />
-      <entry key="S10" value="20.844395949673004" />
-      <entry key="S30" value="25.806897098875908" />
-      <entry key="S60" value="27.334098251302077" />
-      <entry key="M2" value="28.148910866355543" />
-      <entry key="M5" value="29.02183794492373" />
-      <entry key="M10" value="35.91290819268631" />
-      <entry key="M15" value="49.70915874001413" />
-      <entry key="M30" value="103.91701613403079" />
-      <entry key="H1" value="195.93071328309622" />
-      <entry key="H2" value="308.79213362430545" />
-      <entry key="H4" value="470.157985161254" />
-      <entry key="D1" value="2127.5610995990382" />
-      <entry key="W1" value="4287.582299851818" />
+      <entry key="MS100" value="2.001116979010603" />
+      <entry key="MS500" value="4.094158373804225" />
+      <entry key="S2" value="8.92361582487899" />
+      <entry key="S5" value="14.691976585813846" />
+      <entry key="S10" value="18.458177853745262" />
+      <entry key="S30" value="21.90498752708305" />
+      <entry key="S60" value="22.917691876070354" />
+      <entry key="M2" value="23.481950252600434" />
+      <entry key="M5" value="28.468504371407032" />
+      <entry key="M10" value="48.66957330445947" />
+      <entry key="M15" value="67.25824602248092" />
+      <entry key="M30" value="105.37385137382685" />
+      <entry key="H1" value="171.188977633036" />
+      <entry key="H2" value="290.79739628858414" />
+      <entry key="H4" value="476.9258546367575" />
+      <entry key="D1" value="2159.8908361278404" />
+      <entry key="W1" value="4406.6012351980535" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0007452437543827" />
-      <entry key="MS500" value="1.2383330051585675" />
-      <entry key="S2" value="1.8940997800225146" />
-      <entry key="S5" value="2.3874508871757856" />
-      <entry key="S10" value="2.6527290087816597" />
-      <entry key="S30" value="2.8734789059269428" />
-      <entry key="S60" value="2.9352746680581863" />
-      <entry key="M2" value="2.967262161964127" />
-      <entry key="M5" value="2.992772369754541" />
-      <entry key="M10" value="3.174135799932905" />
-      <entry key="M15" value="3.6326160084067944" />
-      <entry key="M30" value="5.786877753179057" />
-      <entry key="H1" value="10.667747640336245" />
-      <entry key="H2" value="20.718467936509196" />
-      <entry key="H4" value="54.60344034952065" />
-      <entry key="D1" value="517.202302930891" />
-      <entry key="W1" value="1018.4647040682217" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="8.818523144330179E-222" />
+      <entry key="S5" value="3.78580589913965E-89" />
+      <entry key="S10" value="6.152890295738763E-45" />
+      <entry key="S30" value="1.83242576929207E-15" />
+      <entry key="S60" value="4.280684255223769E-8" />
+      <entry key="M2" value="2.0689814535717357E-4" />
+      <entry key="M5" value="0.03359730426568853" />
+      <entry key="M10" value="0.18397871539093863" />
+      <entry key="M15" value="0.335726159904821" />
+      <entry key="M30" value="0.9148882661978256" />
+      <entry key="H1" value="3.365346876380421" />
+      <entry key="H2" value="11.11946442775908" />
+      <entry key="H4" value="39.34056255769247" />
+      <entry key="D1" value="488.73640379964047" />
+      <entry key="W1" value="1010.9675587425514" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.2263801127475863" />
-      <entry key="MS500" value="3.293889450282393" />
-      <entry key="S2" value="10.615334732999932" />
-      <entry key="S5" value="18.028216014655122" />
-      <entry key="S10" value="23.3568857754669" />
-      <entry key="S30" value="28.622643145853317" />
-      <entry key="S60" value="30.238850224994327" />
-      <entry key="M2" value="31.100472971372874" />
-      <entry key="M5" value="32.00818289539794" />
-      <entry key="M10" value="39.08329610594717" />
-      <entry key="M15" value="53.33841731736677" />
-      <entry key="M30" value="109.70016680810231" />
-      <entry key="H1" value="206.593771115887" />
-      <entry key="H2" value="329.504587889148" />
-      <entry key="H4" value="524.7525974882318" />
-      <entry key="D1" value="2644.7487452220093" />
-      <entry key="W1" value="5306.042742606688" />
+      <entry key="MS100" value="1.9488821989895724" />
+      <entry key="MS500" value="4.069611872943397" />
+      <entry key="S2" value="8.906625939125618" />
+      <entry key="S5" value="14.67921679646604" />
+      <entry key="S10" value="18.44975376715804" />
+      <entry key="S30" value="21.901543220676594" />
+      <entry key="S60" value="22.915875416339752" />
+      <entry key="M2" value="23.481218612962547" />
+      <entry key="M5" value="28.501405031907158" />
+      <entry key="M10" value="48.85251943120822" />
+      <entry key="M15" value="67.59285434275725" />
+      <entry key="M30" value="106.28759853316461" />
+      <entry key="H1" value="174.5525802655537" />
+      <entry key="H2" value="301.9135449697854" />
+      <entry key="H4" value="516.2600256200129" />
+      <entry key="D1" value="2648.613385303276" />
+      <entry key="W1" value="5417.564563552243" />
     </decayedShown>
   </component>
   <component name="PackageJsonUpdateNotifier">
