@@ -28,9 +28,7 @@ public class EmailController {
     @PostMapping("/reset-password")
     public ResponseEntity<?> resetPassword(@RequestBody LoginRequest request) {
         String email = request.email();
-        System.out.println("reset password, Email: " + email);
         if(!userService.isEmailTaken(email)) {
-            System.out.println("Email not found: " + email);
             return ResponseEntity.badRequest().build();
         }
 

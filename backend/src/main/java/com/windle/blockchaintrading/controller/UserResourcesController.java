@@ -50,11 +50,9 @@ public class UserResourcesController {
     public ResponseEntity<?> getWalletResourcesByUser(Authentication authentication){
         try{
             User user = (User) authentication.getPrincipal();
-            System.out.println("Fetching wallet resources for user: " + user.getId());
 
             WalletResponse wallet = walletService.getUserWalletResponse(user.getId());
             if(wallet == null){
-                System.out.println("Wallet not found for user: " + user.getId());
                 return ResponseEntity.status(404).body("Wallet not found for user");
             }
             // Proceed with fetching wallet resources for the authenticated user
@@ -117,9 +115,7 @@ public class UserResourcesController {
     @GetMapping("/trade/total_quantity")
     public BigDecimal getTotalCoinsOwnedByUser(Authentication authentication) {
         User user = (User) authentication.getPrincipal();
-        System.out.println("Calculate coins for user:" + user.getId());
         BigDecimal quantity = tradeService.calculateTotalCoinsOwnedByUserId(user.getId());
-        System.out.println("Total coins owned by user " + user.getId() + ": " + quantity);
         return quantity;
     }
 

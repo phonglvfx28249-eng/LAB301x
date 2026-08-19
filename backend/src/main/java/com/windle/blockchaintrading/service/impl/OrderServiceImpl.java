@@ -167,6 +167,11 @@ public class OrderServiceImpl implements OrderService {
         }
 
         // 2. Lock Order State
+        if(order.getStatus() != Order.OrderStatus.FILLED) {
+            // If the order was cancelled, we need to refund the locked funds
+            finalPnL = BigDecimal.valueOf(0);
+        }
+
         order.setRealizedPnl(finalPnL);
         order.setUnrealizedPnl(BigDecimal.ZERO);
         order.setStatus(Order.OrderStatus.CANCELLED);
@@ -180,11 +185,6 @@ public class OrderServiceImpl implements OrderService {
 
         BigDecimal currentBalance = wallet.getAvailableBalance() != null ? wallet.getAvailableBalance() : BigDecimal.ZERO;
 
-
-        if(order.getStatus() != Order.OrderStatus.FILLED) {
-            // If the order was cancelled, we need to refund the locked funds
-            finalPnL = BigDecimal.valueOf(0);
-        }
 
         wallet.setAvailableBalance(currentBalance.add(finalPnL));
         walletRepository.save(wallet);

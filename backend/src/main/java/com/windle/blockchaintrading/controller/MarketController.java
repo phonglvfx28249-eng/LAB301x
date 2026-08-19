@@ -87,7 +87,6 @@ public class MarketController {
     public ResponseEntity<?> getMaxPrice24H() {
         try{
             BigDecimal maxPrice = marketDataService.getMaxPrice24h();
-            System.out.println("Max price (24h): " + maxPrice);
             return ResponseEntity.ok(maxPrice);
         } catch (Exception e) {
             log.error("Error fetching max price (24h): ", e);
@@ -99,7 +98,6 @@ public class MarketController {
     public ResponseEntity<?> getMinPrice24H() {
         try{
             BigDecimal minPrice = marketDataService.getMinPrice24h();
-            System.out.println("Min price (24h): " + minPrice);
             return ResponseEntity.ok(minPrice);
         } catch (Exception e) {
             log.error("Error fetching min price (24h): ", e);
@@ -111,7 +109,6 @@ public class MarketController {
     public ResponseEntity<?> getVolume24H() {
         try{
             long volume = marketDataService.getVolume24h();
-            System.out.println("Volume (24h): " + volume);
             return ResponseEntity.ok(volume);
         } catch (Exception e) {
             log.error("Error fetching volume (24h): ", e);
@@ -123,7 +120,6 @@ public class MarketController {
     public ResponseEntity<?> getMarketPrice() {
         try{
             BigDecimal marketPrice = tradeService.findCurrentMarketPrice();
-            System.out.println("Current market price: " + marketPrice);
             return ResponseEntity.ok(marketPrice);
         } catch (Exception e) {
             log.error("Error fetching market price: ", e);

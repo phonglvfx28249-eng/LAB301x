@@ -62,8 +62,6 @@ public class OMSLayer {
                 matchingEngine.matchOrder(order);
             }
         }
-
-        System.out.println("Matching engine executed.---------------------------------------");
     }
 
     @Scheduled(fixedDelay = 1000)
